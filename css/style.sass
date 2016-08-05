@@ -1,0 +1,320 @@
+//
+  Theme Name: BBQ-HTML5-CSS3-JS
+  Theme URI: BBQ-HTML5-CSS3-JS
+  Description: Testplattform
+  Author: Chergo Zelfo
+  Version: 1.0
+  License: none (public domain)
+  Tags: HTML5, CSS3, JavaScript
+//
+@import url(reset.css)
+
+$bgColor: #F4F4F4
+$fontColor: #787e81
+$darkColor: #2F2F2F
+$middleColor: #D7D7D7
+$brightColor: #fcfcff
+$shadowColor: rgba(0, 0, 0, 0.16)
+$secondColor: #FF9966
+$codeColor: #777777
+
+$red: #C44230
+$green: #39B54A
+$blue: #3F77BB
+$yellow: yellow
+
+$wrapper-padding: 1.6%
+
+/* HTML Tags */
+body
+  background: $bgColor
+  font:
+    family: 'Oswald', MuseoSlab300, 'Open Sans', 'lucida sans unicode', 'lucida grande', 'Trebuchet MS', verdana, arial, helvetica, helve, sans-serif
+    size: 0.8em
+  color: $fontColor
+  line-height: 1.5
+
+header
+  margin-bottom: 5%
+
+nav
+  position: fixed
+  top: 0
+  left: 0
+  padding-left: $wrapper-padding / 2
+  width: 100%
+  background: $darkColor
+  -moz-box-shadow: 0 2px 3px 0px $shadowColor
+  -webkit-box-shadow: 0 2px 3px 0px $shadowColor
+  box-shadow: 0 2px 3px 0px $shadowColor
+  z-index: 10
+  a
+    float: left
+    padding: 1%
+    color: $brightColor
+    text-decoration: none
+    -webkit-transition: background 0.5s, color 0.5s ease /* For Safari 3.1 to 6.0 */
+    transition: background-color 0.5s, color 0.5s ease
+  a:hover
+    background-color: $brightColor
+    color: $darkColor
+
+main
+  display: block
+  margin: 0 auto
+  //width: 100%
+  padding: $wrapper-padding
+
+section
+  padding: 6%
+  clear: both
+
+article
+  display: block
+  float: left
+  width: 15%
+  height: 250px
+  min-width: 270px
+  margin: 1% 0 1% 1.6%
+  padding: 2%
+  background-color: $brightColor
+  //border: $middleColor 1px solid
+  border-radius: 2px
+  box-shadow: 0 1px 2px rgba(0,0,0,0.07)
+  overflow: auto
+  resize: both
+
+article:first-child
+  margin-left: 0
+
+h1
+  font-weight: bold
+  font-size: 2.2em
+  color: $middleColor
+  margin-bottom: 0.5em
+
+h2
+  display: block
+  margin-bottom: 1em
+  font:
+    size: 1.25em
+    weight: 400
+  color: $secondColor
+
+h3
+  display: block
+  margin-bottom: 1em
+  font-style: italic
+
+h3::after
+  content: ":"
+
+p
+  margin-bottom: 1em
+
+.justify
+  text-align: justify
+
+article ul
+  padding-left: 5%
+  margin-bottom: 1em
+
+article > ul
+  padding: 0
+
+article li
+  margin-bottom: 0.5em
+
+code
+  display: block
+  font-family: monospace
+  font-size: 1.1em
+  margin-bottom: 1em
+  padding: 1em
+  color: $codeColor
+  background-color: $bgColor
+
+acronym
+  cursor: help
+  border-bottom: 1px dotted
+
+i
+  font-style: italic
+
+strong
+  font-weight: bold
+
+pre
+  white-space: pre-line
+  height: 5%
+
+mark
+  padding: 0 3%
+  background: $yellow
+
+time
+  font-family: monospace
+
+video, audio
+  width: 100%
+  max-height: 120px
+
+video img
+  max-height: 120px
+
+.contact
+  overflow: inherit
+  height: auto
+
+.footnote
+  font-size: 0.8em
+  font-style: italic
+
+.red
+  color: $red
+
+.green
+  color: $green
+
+.blue, .color-format
+  color: $blue
+
+.yellow
+  color: $yellow
+
+#CSS3 > article.css-pseudo-element > p::before,
+#CSS3 > article.css-pseudo-element > p::after
+  content: " *** "
+  font-weight: bold
+
+#CSS3 > article.css-pseudo-element > p::before
+  color: $green
+
+#CSS3 > article.css-pseudo-element > p::after
+  color: $red
+
+#CSS3 > article.css-first-of-type p:first-of-type
+  background: $yellow
+
+#CSS3 > article.css-nth-of-type p:nth-of-type(2)
+  background: $yellow
+
+#CSS3 > article.css-first-child li:first-child
+  background: $yellow
+
+#CSS3 > article.css-nth-child li:nth-child(2)
+  background: $yellow
+
+#CSS3 > article.css-transition
+  background: $red
+  color: transparent
+  cursor: pointer
+  -webkit-transition: background 0.5s, color 0.5s, -webkit-transform 0.5s ease /* For Safari 3.1 to 6.0 */
+  transition: background 0.5s, color 0.5s, transform 0.5s ease
+
+#CSS3 > article.css-transition:hover
+  background: $brightColor
+  color: $darkColor
+  -webkit-transform: rotate(4deg) /* Safari */
+  transform: rotate(4deg)
+
+#CSS3 > article.css-transition p
+  position: relative
+  transform: translateY(100px)
+  opacity: 0
+  transition: all 0.2s linear
+
+#CSS3 > article.css-transition:hover p
+  opacity: 1
+  transform: translateY(0px)
+  transition-delay: 0.1s
+
+fieldset
+  margin: 10px 0
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea
+  width: 96%
+  border: 1px solid $middleColor
+  background: #FFF
+  margin: 0 0 5px
+  padding: 10px
+
+#contact input[type="text"]:hover,
+#contact input[type="email"]:hover,
+#contact input[type="tel"]:hover,
+#contact input[type="url"]:hover,
+#contact textarea:hover
+  -webkit-transition: border-color 0.3s ease-in-out
+  -moz-transition: border-color 0.3s ease-in-out
+  transition: border-color 0.3s ease-in-out
+  border: 1px solid #AAA
+
+#contact textarea
+  height: 100px
+  resize: vertical
+
+#contact button[type="submit"]
+  cursor: pointer
+  width: 100%
+  border: none
+  background: #0CF
+  color: #FFF
+  margin: 0 0 5px
+  padding: 10px
+  font-size: 15px
+
+#contact button[type="submit"]:hover
+  background: #09C
+  -webkit-transition: background 0.3s ease-in-out
+  -moz-transition: background 0.3s ease-in-out
+  transition: background-color 0.3s ease-in-out
+
+#contact button[type="submit"]:active
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5)
+
+#contact input:focus,
+#contact textarea:focus
+  outline: 0
+  border: 1px solid #999
+
+footer
+  clear: both
+  height: 200px
+
+/* MODIFIERS */
+@media only screen and (max-width: 800px)
+  body
+    font-size: 0.75em
+    article
+      clear: both
+      width: 96%
+      height: auto
+      min-height: inherit
+      max-height: inherit
+      min-width: inherit
+      min-height: inherit
+      margin: 1% 0 1% 1%
+      padding: 3%
+      overflow: inherit
+
+/* NO SCRIPT */
+#no_script
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: rgba(0, 0, 0, 0.76)
+  z-index: 10
+  text-align: center
+  padding-top: 25%
+  color: $red
+  font-size: 2em
+  font-weight: bold
+
+#no_script a
+  color: $red

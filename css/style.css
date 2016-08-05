@@ -1,0 +1,378 @@
+/*
+Theme Name: BBQ-HTML5-CSS3-JS
+Theme URI: BBQ-HTML5-CSS3-JS
+Description: Testplattform
+Author: Chergo Zelfo
+Version: 1.8
+License: none (public domain)
+Tags: HTML5, CSS3, JavaScript
+*/
+/* additional reset to normalize.css */
+ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+/* HTML Tags */
+body {
+  background-color: #2f2f2f;
+  color: #c6c6c6;
+  line-height: 1.5;
+  max-width: 800px;
+  font-family: "Oswald", MuseoSlab300, "Open Sans", "lucida sans unicode", "lucida grande", "Trebuchet MS", verdana, arial, helvetica, helve, sans-serif;
+  font-size: 0.85em; }
+
+header {
+  margin-bottom: 5%; }
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-left: 0.8%;
+  width: 100%;
+  background: #2f2f2f;
+  -moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.2);
+  z-index: 10; }
+  nav a {
+    float: left;
+    padding: 1%;
+    color: #fcfcff;
+    text-decoration: none;
+    -webkit-transition: background 0.5s, color 0.5s ease;
+    transition: background-color 0.5s, color 0.5s ease; }
+  nav a:hover {
+    background-color: #abaea7;
+    color: #2F2F2F; }
+
+main {
+  display: block;
+  margin: 0 auto;
+  padding: 1.6%; }
+
+section {
+  padding: 6%; }
+
+section#contact {
+  display: none; }
+
+article {
+  display: block;
+  width: 96%;
+  margin: 1% 0 1% 1%;
+  padding: 3%; }
+
+h1 {
+  font-weight: bold;
+  font-size: 2.2em;
+  margin-bottom: 0.5em;
+  color: #abaea7; }
+
+h2 {
+  display: block;
+  margin: .5em 0 .6em;
+  padding: 1em 0 6px;
+  color: #fcfcff;
+  -moz-box-shadow: rgba(255, 255, 255, 0.07) 0 1px 0 inset;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.07) 0 1px 0 inset;
+  box-shadow: rgba(255, 255, 255, 0.07) 0 1px 0 inset;
+  border-top: 1px solid #121212;
+  font-size: 1.8em;
+  font-weight: 400; }
+
+h3 {
+  display: block;
+  margin: 2em 0 1em 0;
+  font-size: 1.2em;
+  font-style: italic; }
+
+h3::after {
+  content: ":"; }
+
+p {
+  margin-bottom: 1em; }
+  p[id$=-output] {
+    margin-bottom: 1em;
+    padding: 1em;
+    background-color: #202020;
+    box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+    font-family: monospace;
+    font-size: 1.3em;
+    color: #dadbb1; }
+    p[id$=-output].true {
+      color: #39B54A; }
+    p[id$=-output].false {
+      color: #C44230; }
+
+article a {
+  color: #c6c6c6; }
+
+form {
+  display: table;
+  margin-bottom: 1em;
+  padding: 1em;
+  background-color: #202020;
+  color: #dadbb1;
+  box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset; }
+
+form > p {
+  display: table-row; }
+
+label {
+  display: table-cell; }
+
+input {
+  display: table-cell; }
+
+label {
+  margin-right: 1%; }
+
+input[type=number] {
+  width: 80px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-left: 1em;
+  margin-bottom: 1em;
+  padding: 0.25em; }
+  input[type=number]:hover {
+    -webkit-transition: border-color 0.3s ease-in-out;
+    -moz-transition: border-color 0.3s ease-in-out;
+    transition: border-color 0.3s ease-in-out;
+    border: 1px solid #2F2F2F; }
+  input[type=number]:focus {
+    outline: 0;
+    border: 1px solid #fcfcff; }
+
+button {
+  margin-bottom: 1em; }
+
+.justify {
+  text-align: justify; }
+
+article ul {
+  padding-left: 5%;
+  margin-bottom: 1em; }
+
+article > ul {
+  padding: 0; }
+
+article li {
+  margin-bottom: 0.5em; }
+
+code {
+  display: block;
+  font-family: monospace;
+  font-size: 1.1em;
+  margin-bottom: 1em;
+  padding: 1em;
+  background-color: #202020;
+  color: #dadbb1;
+  box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset; }
+
+pre {
+  white-space: pre;
+  height: 5%; }
+
+pre.prettyprint,
+code.prettyprint {
+  background-color: inherit !important;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+  -ms-border-radius: 0;
+  -khtml-border-radius: 0;
+  border-radius: 0; }
+
+acronym {
+  cursor: help;
+  border-bottom: 1px dotted; }
+
+i {
+  font-style: italic; }
+
+strong {
+  font-weight: bold; }
+
+mark {
+  padding: 0 0.2em;
+  color: #2F2F2F;
+  background-color: #d6c74c; }
+
+time {
+  font-family: monospace; }
+
+video, audio {
+  width: 100%; }
+
+video img {
+  max-height: 120px; }
+
+.contact {
+  overflow: inherit;
+  height: auto; }
+
+.footnote {
+  font-size: 0.8em;
+  font-style: italic; }
+
+.red {
+  color: #C44230; }
+
+.green {
+  color: #39B54A; }
+
+.blue, .color-format {
+  color: #3F77BB; }
+
+.yellow {
+  color: #d6c74c; }
+
+#CSS3 > article.css-pseudo-element > p::before,
+#CSS3 > article.css-pseudo-element > p::after {
+  content: " *** ";
+  font-weight: bold; }
+
+#CSS3 > article.css-pseudo-element > p::before {
+  color: #39B54A; }
+
+#CSS3 > article.css-pseudo-element > p::after {
+  color: #C44230; }
+
+#CSS3 > article.css-first-of-type p:first-of-type {
+  color: #39B54A;
+  font-weight: bold; }
+  #CSS3 > article.css-first-of-type p:first-of-type::before {
+    content: ">> "; }
+
+#CSS3 > article.css-nth-of-type p:nth-of-type(2) {
+  color: #3F77BB;
+  font-weight: bold; }
+  #CSS3 > article.css-nth-of-type p:nth-of-type(2)::before {
+    content: ">> "; }
+
+#CSS3 > article.css-first-child li:first-child {
+  color: #39B54A;
+  font-weight: bold; }
+  #CSS3 > article.css-first-child li:first-child::before {
+    content: ">> "; }
+
+#CSS3 > article.css-nth-child li:nth-child(2) {
+  color: #3F77BB;
+  font-weight: bold; }
+  #CSS3 > article.css-nth-child li:nth-child(2)::before {
+    content: ">> "; }
+
+#CSS3 > article.css-transition {
+  color: transparent;
+  cursor: pointer;
+  -webkit-transition: background 0.5s, color 0.5s, -webkit-transform 0.5s ease;
+  transition: background 0.5s, color 0.5s, transform 0.5s ease; }
+
+#CSS3 > article.css-transition:hover {
+  background: #C44230;
+  color: #fcfcff;
+  -webkit-transform: rotate(4deg);
+  transform: rotate(4deg); }
+
+#CSS3 > article.css-transition p {
+  position: relative;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.2s linear; }
+
+#CSS3 > article.css-transition:hover p {
+  opacity: 1;
+  transform: translateY(0px);
+  transition-delay: 0.1s; }
+
+fieldset {
+  margin: 10px 0; }
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea {
+  width: 96%;
+  border: 1px solid #AAA;
+  background: #FFF;
+  margin: 0 0 5px;
+  padding: 10px; }
+
+#contact input[type="text"]:hover,
+#contact input[type="email"]:hover,
+#contact input[type="tel"]:hover,
+#contact input[type="url"]:hover,
+#contact textarea:hover {
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1px solid #333; }
+
+#contact textarea {
+  height: 100px;
+  resize: vertical; }
+
+#contact button[type="submit"] {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #0CF;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px; }
+
+#contact button[type="submit"]:hover {
+  background: #09C;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out; }
+
+#contact button[type="submit"]:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+#contact input:focus,
+#contact textarea:focus {
+  outline: 0;
+  border: 1px solid #999; }
+
+footer {
+  clear: both;
+  height: 200px; }
+
+/* MODIFIERS */
+@media only screen and (max-width: 800px) {
+  body {
+    font-size: 0.75em; }
+    body article {
+      clear: both;
+      width: 96%;
+      height: auto;
+      min-height: inherit;
+      max-height: inherit;
+      min-width: inherit;
+      min-height: inherit;
+      margin: 1% 0 1% 1%;
+      padding: 3%;
+      overflow: inherit; } }
+/* NO SCRIPT */
+#no_script {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.76);
+  z-index: 10;
+  text-align: center;
+  padding-top: 25%;
+  color: #C44230;
+  font-size: 2em;
+  font-weight: bold; }
+
+#no_script a {
+  color: #C44230; }
+
+/*# sourceMappingURL=style.css.map */

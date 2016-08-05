@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]> <html dir="ltr" lang="en-US"class="no-js iem7"> <![endif]-->
+<!--[if lt IE 7 ]> <html dir="ltr" lang="en-US" class="no-js ie6 oldie"> <![endif]-->
+<!--[if IE 7 ]>    <html dir="ltr" lang="en-US" class="no-js ie7 oldie"> <![endif]-->
+<!--[if IE 8 ]>    <html dir="ltr" lang="en-US" class="no-js ie8 oldie"> <![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html dir="ltr" lang="en-US" class="no-js"><!--<![endif]-->
+<html class="no-js">
+  <head>
+    <title>BBQ Modul 1: HTML5-CSS3-JavaScript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css" media='screen'>
+    <link rel="stylesheet" href="css/style.css" media='screen'>
+    <link rel="stylesheet" href="css/prettify.css" media='screen'>
+    <link rel="stylesheet" href="css/prettify-sunburst.css" media='screen'>
+    <link rel="stylesheet" href="css/print.css" media='print'>
+    <style>
+      p.color-format {
+          color: red;
+      }
+    </style>
+  </head>
+  <body>
+
+    <noscript>
+      <div id="no_script">
+        <p>Sie haben JavaScript in Ihrem Browser deaktiviert.<br>
+          Bitte schalten Sie es wie folgt ein: <a href="http://enable-javascript.com/de/" title="Externer Link: Wie Sie JavaScript in Ihrem Browser aktivieren">http://enable-javascript.com/de/</a>
+        </p>
+      </div>
+    </noscript>
+
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#all" id="all">Show all</a></li>
+          <li><a href="#HTML5" id="HTML5">HTML5</a></li>
+          <li><a href="#CSS3" id="CSS3">CSS3</a></li>
+          <li><a href="#JavaScript" id="JavaScript">JavaScript</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- BEGIN HTML5 ---------------------------------------------------------------------------------------------------------------------->
+      <section id="HTML5">
+        <h1>HTML5</h1>
+
+        <article class="html-vid">
+          <h2>Video</h2>
+          <video controls loop poster="http://www.w3schools.com/html/pic_mountain.jpg">
+            <source src="http://www.w3schools.com/html/movie.mp4" type="video/mp4">
+            <source src="http://www.w3schools.com/html/movie.ogg" type="video/ogg">
+            <object type="application/x-shockwave-flash" data="http://www.w3schools.com/html/helloworld.swf" width="260">
+              <param name="allowfullscreen" value="true">
+              <!--[if IE]><param name="movie" value="player.swf"><![endif]-->
+              <p>Your browser cannot play HTML5 video. <a href="http://www.w3schools.com/html/mov_bbb.webm">Download it</a> instead.</p>
+            </object>
+          </video>
+          <p class="footnote">Video courtesy of <a href="http://www.w3schools.com" target="_blank">w3schools.com</a>.</p>
+        </article>
+
+        <article class="html-aud">
+          <h2>Audio</h2>
+          <audio controls>
+            <source src="http://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+            <source src="http://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <p class="footnote">Audio courtesy of <a href="http://www.w3schools.com" target="_blank">w3schools.com</a>.</p>
+          <p class="footnote">Note: The autoplay attribute does not work in mobile devices like iPad and iPhone.</p>
+        </article>
+
+        <article class="html-text">
+          <h2>HTML Text Features</h2>
+          <p class="justify">Die <strong>Hypertext Markup Language</strong> (engl. für Hypertext-Auszeichnungssprache), abgekürzt
+            <acronym title="Hypertext Markup Language">HTML</acronym>,
+            ist eine <mark>textbasierte Auszeichnungssprache</mark> zur Strukturierung digitaler Dokumente wie Texte mit Hyperlinks,
+            Bildern und anderen Inhalten. HTML-Dokumente sind die Grundlage des World Wide Web und werden
+            von Webbrowsern dargestellt. Neben den vom Browser angezeigten Inhalten können HTML-Dateien zusätzliche
+            Angaben in Form von Metainformationen enthalten, z. B. über die im Text verwendeten Sprachen,
+            den Autor oder den zusammengefassten Inhalt des Textes.
+          </p>
+          <time>Datum und Uhrzeit:
+            <script>
+              var DatumAktuell = new Date();
+              document.write(DatumAktuell);
+            </script>
+          </time>
+        </article>
+
+      </section>
+      <!-- END HTML5 -->
+
+      <!-- BEGIN CSS3 ---------------------------------------------------------------------------------------------------------------------->
+      <section id="CSS3">
+        <h1>CSS3</h1>
+        <article class="css-int">
+          <h2>CSS: inline, inside, external</h2>
+          <p class="color-format" style="color: #39B54A;">Das ist eine Formatierung.</p>
+          <p><span class="green">inline</span> | <span class="red">internal</span> | <span class="blue">external</span></p>
+        </article>
+
+         <article class="css-pseudo-element">
+          <h2>CSS3 Pseudo-Element ::before, ::after</h2>
+          <p><- Hier ist ein "<span class="green">before</span>" und hier ein "<span class="red">after</span>" -></p>
+          <code>
+            <pre>
+              p::before, p::after {
+                content: " *** ";
+                font-weight: bold;
+              }
+              p::before {
+                color: #39B54A;
+              }
+              p::after {
+                color: red;
+              }
+            </pre>
+          </code>
+        </article>
+
+        <article class="css-first-of-type">
+          <h2>CSS3 :first-of-type Selector</h2>
+          <p>The first paragraph.</p>
+          <p>The second paragraph.</p>
+          <p>The third paragraph.</p>
+          <p>The fourth paragraph.</p>
+          <code>
+            <pre>
+              p:first-of-type {
+                color: #39B54A;
+                font-weight: bold; }
+                p:first-of-type::before {
+                  content: ">> "; }
+            </pre>
+          </code>
+        </article>
+
+        <article class="css-nth-of-type">
+          <h2>CSS3 :nth-of-type Selector</h2>
+          <p>The first paragraph.</p>
+          <p>The second paragraph.</p>
+          <p>The third paragraph.</p>
+          <p>The fourth paragraph.</p>
+          <code>
+            <pre>
+              p:nth-of-type(2) {
+                color: #3F77BB;
+                font-weight: bold; }
+                p:first-of-type::before {
+                  content: ">> "; }
+            </pre>
+          </code>
+        </article>
+
+        <article class="css-first-child">
+          <h2>CSS :first-child Selector</h2>
+            <ul>
+              <li>The first child.</li>
+              <li>The second child.</li>
+              <li>The third child.</li>
+              <li>
+                <ul>
+                  <li>The first child.</li>
+                  <li>The second child.</li>
+                  <li>The third child.</li>
+                  <li>
+                    <ul>
+                      <li>The first child.</li>
+                      <li>The second child.</li>
+                      <li>The third child.</li>
+                      <li>The fourth child.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>The fourth child.</li>
+            </ul>
+          <code>
+            <pre>
+              li:first-child {
+                color: #39B54A;
+                font-weight: bold; }
+                p:first-of-type::before {
+                  content: ">> "; }
+            </pre>
+          </code>
+        </article>
+
+        <article class="css-nth-child">
+          <h2>CSS3 :nth-child() Selector</h2>
+          <ul>
+            <li>The first child.</li>
+            <li>The second child.</li>
+            <li>The third child.</li>
+          </ul>
+          <code>
+            <pre>
+              li:nth-child(2) {
+                color: #3F77BB;
+                font-weight: bold; }
+                p:first-of-type::before {
+                  content: ">> "; }
+            </pre>
+          </code>
+        </article>
+
+        <article class="css-sel-attr">
+          <h2>CSS3 Attribute Selectores</h2>
+          <p><i>[id]</i> All elements with an id attribute</p>
+          <p><i>[id=my-Address]</i> All elements with an id attribute value equal to "my-Address"</p>
+          <p><i>[id$=ess]</i> All elements with an id attribute value ending with "ess"</p>
+          <p><i>[id|=my]</i> All elements with an id attribute value equal to "my" or starting with "my" followed by a hyphen (-)</p>
+          <p><i>[id^=L]</i> All elements with an id attribute value starting with the letter "L</p>
+          <p><i>[title~=beautiful]</i> All elements with a title attribute value containing the word "beautiful"</p>
+          <p><i>[id*=s]</i> All elements with an id attribute value containing the string "s"</p>
+        </article>
+
+        <article class="css-transition">
+          <h2>CSS3 Transitions <span class="red">>></span> HOVER MICH! <span class="red"><<</span></h2>
+          <p>Danke! :-)</p>
+          <code>
+            <pre>
+              #CSS3 > article.css-transition {
+                color: transparent;
+                cursor: pointer;
+                -webkit-transition: background 0.5s, color 0.5s, -webkit-transform 0.5s ease;
+                transition: background 0.5s, color 0.5s, transform 0.5s ease;
+              }
+
+              #CSS3 > article.css-transition:hover {
+                background: $red;
+                color: $bright-color;
+                -webkit-transform: rotate(4deg);
+                transform: rotate(4deg);
+              }
+            </pre>
+          </code>
+        </article>
+
+      </section>
+      <!-- END CSS3 -->
+
+      <!-- BEGIN JavaScript ---------------------------------------------------------------------------------------------------------------------->
+      <section id="JavaScript">
+        <h1>JavaScript</h1>
+
+        <article class="javascript-data-types">
+          <h2>Datentypen</h2>
+          <script>
+            <!--
+            var length = 16;                               // Number
+            var lastName = "Johnson";                      // String
+            var cars = ["Saab", "Volvo", "BMW"];           // Array
+            var x = {firstName:"John", lastName:"Doe"};    // Object
+            //-->
+          </script>
+          <code>
+            <pre>
+              var length = 16;                               // Number
+              var lastName = "Johnson";                      // String
+              var cars = ["Saab", "Volvo", "BMW"];           // Array
+              var x = {firstName:"John", lastName:"Doe"};    // Object
+            </pre>
+          </code>
+          <p>Was macht JavaScript bei ...</p>
+          <code><pre>var x = 16 + "Volvo";</pre></code>
+          <p>JavaScript behandelt 16 <mark>als String</mark>:</p>
+          <code><pre>var x = "16" + "Volvo";</pre></code>
+          <p>Aber ...</p>
+          <code><pre>var x = 16 + 4 + "Volvo";</pre></code>
+          <p>Ergebnis: 20Volvo</p>
+        </article>
+
+        <article class="javascript-var-glob">
+          <h2>Variablen: Global</h2>
+          <code>
+            <pre>
+              var glvar = " Ich bin global. ";
+              function spit(){
+                document.write(glvar);
+              }
+              spit();
+              document.write(glvar);
+            </pre>
+          </code>
+          <h3>Ausgabe</h3>
+          <script>
+            <!--
+            var glvar = "<p>Ich bin global.</p>";
+            function spit(){
+              document.write(glvar);
+            }
+            spit();
+            document.write(glvar);
+            //-->
+          </script>
+        </article>
+
+        <article class="javascript-var-loc">
+          <h2>Variablen: Local</h2>
+          <code>
+            <pre>
+              function spit(){
+                var locvar = " Ich bin local. ";
+                document.write(locvar);
+              }
+              spit();
+              document.write(locvar);
+            </pre>
+          </code>
+          <h3>Ausgabe</h3>
+          <script>
+            <!--
+            function spit(){
+              var locvar = " Ich bin local. ";
+              document.write(locvar);
+            }
+            spit();
+            document.write(locvar);
+            //-->
+          </script>
+        </article>
+
+        <article class="javascript-vgl-op">
+          <h2>Comparison Operators</h2>
+          <p>Als Ergebnis liefern Vergleichsoperatoren immer einen sogenannten
+             booleschen Wert (Wahrheitswert) vom Typ boolean, d.h. entweder
+             true (wahr) oder false (falsch).</p>
+          <ul>
+            <li>== istgleich</li>
+            <li>!= ungleich</li>
+            <li>>  größer</li>
+            <li>>= größergleich</li>
+            <li><  kleiner</li>
+            <li><= kleinergleich</li>
+          </ul>
+        </article>
+
+        <article class="javascript-ar-op">
+          <h2>Rechenoperationen mit Zuweisung</h2>
+          <h3>Beispiel</h3>
+          <code>
+            <pre>
+              zahl +=  3;
+              zahl -=  2;
+              zahl *= 18;
+              zahl /=  3;
+              zahl %=  5;
+            </pre>
+          </code>
+          <p>Setze den Wert der Variable "zahl".</p>
+          <input id="js-ar-op-input" type="number" value="1" min="1" name="number">
+          <button id="js-ar-op-button">Senden</button>
+          <script>
+          <!--
+          document.getElementById("js-ar-op-button").onclick = function() {
+            var zahl = parseInt(document.getElementById("js-ar-op-input").value);
+
+            zahl +=  3;
+            zahl -=  2;
+            zahl *= 18;
+            zahl /=  3;
+            zahl %=  5;
+
+            document.getElementById("js-ar-op-output").innerHTML += "Das Ergebnis lautet: " + zahl + "<br>";
+          };
+          //-->
+          </script>
+          <h3>Ausgabe</h3>
+          <p id="js-ar-op-output"></p>
+        </article>
+
+        <article class="javascript-log-op">
+          <h2>Logical Operators</h2>
+          <p>... vergleichen zwei bedingte Anweisungen, um zu prüfen, ob eine
+            oder beide Bedingungen true oder false liefern</p>
+          <ul>
+            <li>NOT !</li>
+            <li>OR ||</li>
+            <li>AND &&</li>
+          </ul>
+        </article>
+
+        <article class="javascript-fu">
+          <h2>Funktion durch Funktion starten</h2>
+          <code>
+            <pre>
+              function doFirst(){
+                document.getElementById('js-fu-output').innerHTML += 'Ich bin die erste Funktion!';
+              }
+              function doSecond(){
+                document.getElementById('js-fu-output').innerHTML += 'Ich bin die zweite Funktion!';
+              }
+              document.getElementById("js-fu-button").onclick = function() {
+                doFirst();
+                doSecond();
+              }
+            </pre>
+          </code>
+          <button id="js-fu-button">Senden</button>
+          <script>
+          <!--
+            function doFirst(){
+              document.getElementById("js-fu-output").innerHTML += "Ich bin die erste Funktion!<br>";
+            }
+            function doSecond(){
+              document.getElementById("js-fu-output").innerHTML += "Ich bin die zweite Funktion!<br>";
+            }
+            document.getElementById("js-fu-button").onclick = function() {
+              doFirst();
+              doSecond();
+            }
+          //-->
+          </script>
+          <h3>Ausgabe</h3>
+          <p id="js-fu-output"></p>
+        </article>
+
+        <article class="javascript-if">
+          <h2>Conditional Statements: <i>if, else if, else</i></h2>
+          <h3>Syntax</h3>
+          <code>
+            <pre>
+              if (condition1) {
+                  block of code to be executed if condition1 is true
+              } else if (condition2) {
+                  block of code to be executed if the condition1 is false and condition2 is true
+              } else {
+                  block of code to be executed if the condition1 is false and condition2 is false
+              }
+            </pre>
+          </code>
+          <h3>Beispiel</h3>
+          <code>
+            <pre>
+              document.getElementById("js-if-button").onclick = function() {
+                var birnen = parseInt(document.getElementById("js-if-birnen").value);
+                var aepfel = parseInt(document.getElementById("js-if-aepfel").value);
+                var differenz = birnen - aepfel;
+
+                if (differenz == 0){
+                  document.getElementById("js-if-output").innerHTML = "Prima, so
+                  wird's was mit dem Kuchen!";
+                } else if (differenz < 0) {
+                  // Convert negative number to positive
+                  differenz *= -1;
+                  document.getElementById("js-if-output").innerHTML = "Du brauchst noch "
+                  + differenz + " Birnen.";
+                } else {
+                  document.getElementById("js-if-output").innerHTML = "Du brauchst noch "
+                  + differenz + " Äpfel.";
+                }
+              }
+            </pre>
+          </code>
+          <p>Differenz zwischen 2 Variablen inkl positivieren.</p>
+          <form>
+            <p>
+              <label>Birnen</label>
+              <input id="js-if-birnen" type="number" min="1" value="12" name="Birnen" />
+            </p>
+            <p>
+              <label>Äpfel</label>
+              <input id="js-if-aepfel" type="number" min="1" value="3" name="Aepfel" />
+            </p>
+          </form>
+          <button id="js-if-button">Senden</button>
+
+          <h3>Ausgabe</h3>
+          <p id="js-if-output"></p>
+          <script>
+          <!--
+            document.getElementById("js-if-button").onclick = function() {
+              var birnen = parseInt(document.getElementById("js-if-birnen").value);
+              var aepfel = parseInt(document.getElementById("js-if-aepfel").value);
+              var differenz = birnen - aepfel;
+
+              if (differenz == 0){
+                document.getElementById("js-if-output").innerHTML = "Prima, so wird's was mit dem Kuchen! <br>";
+              } else if (differenz < 0) {
+                // Convert negative number to positive
+                differenz *= -1;
+                document.getElementById("js-if-output").innerHTML = "Du brauchst noch " + differenz + " Birnen. <br>";
+              } else {
+                document.getElementById("js-if-output").innerHTML = "Du brauchst noch " + differenz + " Äpfel. <br>";
+              }
+            }
+
+          //-->
+          </script>
+        </article>
+
+        <article class="javascript-ar-op-mo">
+          <h2><i>if</i> Statement + Modulus (%)</h2>
+          <p>Schaltjahr?</p>
+          <code>
+            <pre>
+              document.getElementById("js-ar-op-mo").onclick = function (){
+                var jahr = parseInt(document.getElementById("js-ar-op-mo-input").value);
+                  var Schaltjahr = false;
+                  if (((jahr % 4 == 0) && (jahr % 100 != 0)) ||
+                    (jahr % 400 == 0)) {
+                    Schaltjahr = true;
+                  }
+                  if(Schaltjahr) {
+                    Ergebnis = "Ja, " + jahr + " ist ein Schaltjahr.";
+                    document.getElementById("js-ar-op-mo-output").className = "false";
+                  }
+                else {
+                  Ergebnis = "Nein, " + jahr + " ist kein Schaltjahr.";
+                  document.getElementById("js-ar-op-mo-output").className = "false";
+                }
+                document.getElementById("js-ar-op-mo-output").innerHTML = Ergebnis;
+              }
+            </pre>
+          </code>
+          <input type="number" id="js-ar-op-mo-input" name="js-ar-op-mo-input" value="2016" min="1900" max="2050"/>
+          <button id="js-ar-op-mo">Senden</button>
+          <h3>Ausgabe</h3>
+          <p id="js-ar-op-mo-output"></p>
+          <script>
+          <!--
+            document.getElementById("js-ar-op-mo").onclick = function (){
+              var jahr = parseInt(document.getElementById("js-ar-op-mo-input").value);
+              var Schaltjahr = false;
+              if (((jahr % 4 == 0) && (jahr % 100 != 0)) ||
+                (jahr % 400 == 0)) {
+                Schaltjahr = true;
+              }
+              if(Schaltjahr) {
+                Ergebnis = "Ja, " + jahr + " ist ein Schaltjahr.";
+                document.getElementById("js-ar-op-mo-output").className = "true";
+              }
+              else {
+                Ergebnis = "Nein, " + jahr + " ist kein Schaltjahr.";
+                document.getElementById("js-ar-op-mo-output").className = "false";
+              }
+              document.getElementById("js-ar-op-mo-output").innerHTML = Ergebnis;
+            }
+          //-->
+          </script>
+        </article>
+
+        <article class="javascript-switch">
+          <h2><i>switch</i> Statement</h2>
+          <p>... verschiedene Aktionen in unterschiedlichen Konditionen.</p>
+          <h3>Syntax</h3>
+          <code>
+            <pre>
+              switch(expression) {
+                case n:
+                  code block
+                  break;
+                case n:
+                  code block
+                  break;
+                default:
+                    default code block
+              }
+            </pre>
+          </code>
+          <h3>Beispiel</h3>
+          <code>
+            <pre>
+              document.getElementById("js-switch-button").onclick = function(){
+                var tier = document.getElementById("js-switch-select");
+                var selectedTier = tier.options[tier.selectedIndex].value;
+                var ausgabe = "Welches Tier suchen wir?";
+
+                // output color
+                document.getElementById("js-switch-output").className = "false";
+
+                switch (selectedTier) {
+                  case "Affe":
+                    ausgabe = "Zu klein und sprunghaft.";
+                    break;
+                  case "Elefant":
+                    ausgabe = "Zu behebig und zu kurzer Hals.";
+                    break;
+                  case "Fliege":
+                    ausgabe = "Viiiiiel zu klein.";
+                    break;
+                  case "Giraffe":
+                    ausgabe = "Gratuliere! Richtig geraten!";
+                    document.getElementById("js-switch-output").className = "true";
+                    break;
+                  case "Leopard":
+                    ausgabe = "Schöne Flecken, aber zu schnell.";
+                    break;
+                  default:
+                    ausgabe = "Welches Tier suchen wir?";
+                }
+
+                document.getElementById("js-switch-output").innerHTML = ausgabe;
+              }
+            </pre>
+          </code>
+          <p>Wir suchen das Tier mit dem langen Hals.</p>
+          <select id="js-switch-select" name="js-switch-select">
+            <option value="Affe">Affe</option>
+            <option value="Elefant">Elefant</option>
+            <option value="Fliege">Fliege</option>
+            <option value="Giraffe">Giraffe</option>
+            <option value="Leopard">Leopard</option>
+          </select>
+          <button id="js-switch-button">Senden</button>
+          <h3>Ausgabe</h3>
+          <p id="js-switch-output"></p>
+          <script>
+          <!--
+            document.getElementById("js-switch-button").onclick = function (){
+              var tier = document.getElementById("js-switch-select");
+              var selectedTier = tier.options[tier.selectedIndex].value;
+              var ausgabe = "Welches Tier suchen wir?";
+
+              // output color
+              document.getElementById("js-switch-output").className = "false";
+
+              switch (selectedTier) {
+                case "Affe":
+                  ausgabe = "Zu klein und sprunghaft.";
+                  break;
+                case "Elefant":
+                  ausgabe = "Zu behebig und zu kurzer Hals.";
+                  break;
+                case "Fliege":
+                  ausgabe = "Viiiiiel zu klein.";
+                  break;
+                case "Giraffe":
+                  ausgabe = "Gratuliere! Richtig geraten!";
+                  document.getElementById("js-switch-output").className = "true";
+                  break;
+                case "Leopard":
+                  ausgabe = "Schöne Flecken, aber zu schnell.";
+                  break;
+                default:
+                  ausgabe = "Welches Tier suchen wir?";
+              }
+
+              document.getElementById("js-switch-output").innerHTML = ausgabe;
+            }
+          //-->
+          </script>
+        </article>
+
+        <article class="javascript-for">
+          <h2><i>for</i> Loop</h2>
+          <h3>Syntax</h3>
+          <code>
+            <pre>
+              for (statement 1; statement 2; statement 3) {
+                  code block to be executed
+              }
+            </pre>
+          </code>
+          <h3>Beispiel</h3>
+          <p>Eine Schleife, die den Wert von <i>i</i> bei 0 startend (Statement 1)
+            in 1er Schritten (Statement 3) bis maximal 2 (Statement 2) erhöht.</p>
+          <code>
+            <pre>
+              for (var i = 0; i < 3; i++) {
+                document.write("Loop hier")
+              }
+            </pre>
+          </code>
+          <h3>Ausgabe</h3>
+          <script>
+          <!--
+            for (var i = 0; i < 3; i++) {
+              document.write("Loop hier <br>")
+            }
+          //-->
+          </script>
+        </article>
+
+        <article class="javascript-while">
+          <h2><i>while</i> Loop</h2>
+          <h3>Syntax</h3>
+          <code>
+            <pre>
+              while (condition) {
+                  code block to be executed
+              }
+            </pre>
+          </code>
+          <h3>Beispiel</h3>
+          <code>
+            <pre>
+              var i = 1;
+
+              while (i < 5) {
+                document.write(i + ". Schleife");
+                i++;
+              }
+            </pre>
+          </code>
+          <h3>Ausgabe</h3>
+          <script>
+          <!--
+            var i = 1;
+
+            while (i < 5) {
+              document.write(i + ". Schleife<br>");
+              i++;
+            }
+            //-->
+          </script>
+        </article>
+
+        <article class="javascript-do-while">
+          <h2><i>do while</i> Loop</h2>
+          <p>Startet 1 Mal und prüft die Condition danach. Loop aktiv solange Condition true ist.</p>
+          <h3>Syntax</h3>
+          <code>
+            <pre>
+              do {
+                code block to be executed
+              } while (condition);
+            </pre>
+          </code>
+          <h3>Beispiel</h3>
+          <p>Obwohl <mark>i > 5</mark> false ist, wird die Anweisung 1 Mal ausgeführt.</p>
+          <code>
+            <pre>
+              var i = 1;
+
+              do {
+                document.write(i + ". Schleife");
+                i++;
+              } while (i > 5);
+            </pre>
+          </code>
+          <h3>Ausgabe</h3>
+          <script>
+          <!--
+            var i = 1;
+
+            do {
+              document.write(i + ". Schleife<br>");
+              i++;
+            } while (i > 5);
+          //-->
+          </script>
+        </article>
+
+        <article class="javascript-event-handlers">
+          <h2>Event Handlers</h2>
+          <p>... sind <mark>HTML-Attribute</mark>, die eine Verknüpfung zu einer Script-Sprache (meist JavaScript) herstellen. </p>
+          <h3>Beispiel</h3>
+          <p>Hier wird per Klick eine Funktion namens <i>showDetails</i> mit dem Parameter
+            <i>animal</i> gestartet. Die Variable <i>animalType</i> wird erzeugt.
+            Mit <i>getAttribute</i> wird das HTML-Attribut <i>data-animal-type</i>
+            herausgesucht und der Wert der Variable gesetzt.
+            Im Alert-Fenster wird mit <i>animal.innerHTML</i> (Bsp: "Specht") und
+            mit <i>animalType</i> (Bsp: "Vogel") der Satz gebildet.</p>
+          <code>
+            <pre>
+              function showDetails(animal) {
+                var animalType = animal.getAttribute("data-animal-type");
+                document.getElementById("js-data-animal-output").innerHTML = "Der " +
+                animal.innerHTML + " ist ein " + animalType + ".";
+              }
+
+              onclick="showDetails(this)" id="Specht" data-animal-type="Vogel"
+            </pre>
+          </code>
+          <p>Klicke auf eine Spezies, um dessen Kategorie zu sehen:</p>
+          <button onclick="showDetails(this)" id="Specht" data-animal-type="Vogel" type="button">Specht</button>
+          <button onclick="showDetails(this)" id="Lachs" data-animal-type="Fisch" type="button">Lachs</button>
+          <button onclick="showDetails(this)" id="Elefant" data-animal-type="Säugetier" type="button">Elefant</button>
+          <h3>Ausgabe</h3>
+          <p id="js-data-animal-output"></p>
+          <script>
+          <!--
+            function showDetails(animal) {
+              var animalType = animal.getAttribute("data-animal-type");
+              document.getElementById("js-data-animal-output").innerHTML = "Der " +
+              animal.innerHTML + " ist ein " + animalType + ".";
+            }
+          //-->
+          </script>
+        </article>
+
+        <article>
+
+        </article>
+
+        <article class="javascript-objects">
+          <h2>Objects</h2>
+
+          <h3>Objects are Variables Containing Variables</h3>
+          <p>Objects are variables too. But objects can contain many values.
+            This code assigns <strong>many values</strong> (John, Dow, 50 ...) to a <strong>variable</strong> named person:</p>
+          <code>
+            <pre>
+              // Using an Object Literal
+              var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+              // OR
+              var person = {
+                  firstName:"John",
+                  lastName:"Doe",
+                  age:50,
+                  eyeColor:"blue"
+              };
+
+              document.getElementById("demo").innerHTML =
+              person.firstName + " " + person.lastName;
+
+              // Using the JavaScript Keyword new
+              var person = new Object();
+              person.firstName = "John";
+              person.lastName = "Doe";
+              person.age = 50;
+              person.eyeColor = "blue";
+
+              document.getElementById("demo").innerHTML =
+              person.firstName + " " + person.lastName;
+            </pre>
+          </code>
+          <p>The values are written as <strong>name:value</strong> pairs (name and
+            value separated by a colon).</p>
+          <p><mark>JavaScript objects are containers for named values.</mark></p>
+
+          <h3>Object Properties</h3>
+          <p>The name:values pairs (in JavaScript objects) are called <strong>properties</strong>.</p>
+          <p>You can access object properties in two ways:</p>
+          <code>
+            <pre>
+              // objectName.propertyName
+              person.lastName;
+
+              // OR
+
+              // objectName["propertyName"]
+              person.["lastName"];
+            </pre>
+          </code>
+
+          <h3>Object Methods</h3>
+          <p>Methods are <strong>actions</strong> that can be performed on objects.
+            Methods are stored in properties as <strong>function definitions</strong>.</p>
+          <code>
+            <pre>
+              // objectName.methodName()
+              name = person.fullName();
+
+              var person = {
+                  firstName: "John",
+                  lastName : "Doe",
+                  id       : 5566,
+                  fullName : function() {
+                     return this.firstName + " " + this.lastName;
+                  }
+              };
+              document.getElementById("demo").innerHTML = person.fullName();
+
+
+              // OR If you access the fullName method, without (),
+              // it will return the function definition:
+              name = person.fullName;
+            </pre>
+          </code>
+          <p><mark>JavaScript objects are containers for named values, called properties and methods.</mark></p>
+
+          <h3>Using an Object Constructor</h3>
+          <p>The examples above are limited in many situations. They only create a single object.</p>
+          <p>Sometimes we like to have an "object type" that can be used to create <strong>many objects of one type</strong>.</p>
+          <p>The standard way to create an "object type" is to use an object <strong>constructor function</strong>:</p>
+          <code>
+            <pre>
+              // The function (person) is an object constructor.
+              function person(first, last, age, eye) {
+                this.firstName = first;
+                this.lastName = last;
+                this.age = age;
+                this.eyeColor = eye;
+              }
+
+              // Once you have an object constructor, you can create new objects of the same type:
+              var myFather = new person("John", "Doe", 50, "blue");
+              var myMother = new person("Sally", "Rally", 48, "green");
+            </pre>
+          </code>
+          <p><mark>Note that <strong>this</strong> is not a variable. It is a keyword. You cannot change the value of <strong>this</strong>.</mark></p>
+          <h3>Built-In JavaScript Constructors</h3>
+          <code>
+            <pre>
+              var x1 = {};            // new object
+              var x2 = "";            // new primitive string
+              var x3 = 0;             // new primitive number
+              var x4 = false;         // new primitive boolean
+              var x5 = [];            // new array object
+              var x6 = /()/           // new regexp object
+              var x7 = function(){};  // new function object
+            </pre>
+          </code>
+
+          <h3>Beispiel</h3>
+          <p>Eine Familie bestehend aus Instanzen eines Objekts, das mittels einem Constructor erstellt wurde.</p>
+          <code>
+            <pre>
+              // Contructor ----------------------------------------------------->
+
+              function Person(
+              firstName,
+              lastName,
+              gender,
+              birthDate,
+              birthLocCity,
+              birthLocCountry,
+              eyeColor){
+                this.Vorname = firstName;
+                this.Nachname = lastName;
+                this.Geschlecht = gender;
+                this.Geburtsdatum = birthDate;
+                this.Geburtsort = birthLocCity;
+                this.Land = birthLocCountry;
+                this.Augenfarbe = eyeColor;
+              }
+
+              var familie = [
+                 new Person(
+                   "Julius",
+                   "Leber",
+                   "m",
+                   "16.11.1966",
+                   "Biesheim",
+                   "Frankreich",
+                   "braun"),
+                 new Person(
+                   "Sophie",
+                   "Scholl",
+                   "w",
+                   "09.05.1972",
+                   "Forchtenberg",
+                   "Deutschland",
+                   "blau"),
+                 new Person(
+                   "Anne",
+                   "Leber-Scholl",
+                   "w",
+                   "12.06.1992",
+                   "Frankfurt am Main",
+                   "Deutschland",
+                   "braun"),
+                 new Person(
+                   "Konrad",
+                   "Leber-Scholl",
+                   "m",
+                   "05.01.2000",
+                   "Rhöndorf",
+                   "Deutschland",
+                   "blau")
+              ];
+
+              var Vater = familie[0];
+              var Mutter = familie[1];
+              var Kind1 = familie[2];
+              var Kind2 = familie[3];
+
+              // onclick -------------------------------------------------------->
+
+              document.getElementById("js-objects-button").onclick = function (){
+
+                // Clears Output Field
+                outputClearer();
+
+                // Get "Select" Values
+                var Info = document.getElementById("js-objects-select");
+                var selectedInfo = Info.options[Info.selectedIndex].value;
+
+                // Was wissen wir über Anne Leber-Scholl?
+                function Kind1Info(){
+                  document.getElementById("js-objects-output").innerHTML = Kind1.Vorname +
+                  " " + Kind1.Nachname + " (geb. am " + Kind1.Geburtsdatum + " in " + Kind1.Geburtsort +
+                  ", " + Kind1.Land + ") ist das erste Kind von " + Mutter.Vorname +
+                  " " + Mutter.Nachname + " und " + Vater.Vorname + " " + Vater.Nachname + ".";
+                }
+
+                // Wer hat blaue Augen?
+                function AugenInfo(){
+                  var blaueAugen = familie.filter(function (Person) {
+                    return Person.Augenfarbe == "blau"
+                  });
+                  var blaueAugenVornamen = "";
+                  for (var i=0; i < blaueAugen.length; i++) {
+                    blaueAugenVornamen = blaueAugen[i].Vorname;
+                    //var mySplitResult = blaueAugenVornamen.join(" und ");
+                    //console.log(mySplitResult);
+                    document.getElementById("js-objects-output").innerHTML +=
+                    blaueAugenVornamen;
+                  }
+                  document.getElementById("js-objects-output").innerHTML +=
+                  " hat/haben blaue Augen."
+                }
+
+                // Wie groß ist der Altersunterschied der Kinder?
+
+
+                // Sind alle Familienmitglieder in D geboren?
+                function inDgeboren(){
+                  var nichtDeutsch = familie.filter(function (Person) {
+                    return Person.Land != "Deutschland";
+                  });
+                  if (nichtDeutsch == 0){
+                    document.getElementById("js-objects-output").innerHTML =
+                    "Alle sind in Deutschland geboren.";
+                  } else {
+                    var nichtDeutschVornamen = "";
+                    for (var i=0; i < nichtDeutsch.length; i++) {
+                      nichtDeutschVornamen = nichtDeutsch[i].Vorname;
+                      document.getElementById("js-objects-output").innerHTML +=
+                      nichtDeutschVornamen;
+                    }
+                    document.getElementById("js-objects-output").innerHTML +=
+                    " - nicht in Deutschland geboren.";
+                  }
+                }
+
+                // STASI Modus!
+                function GetItAll(){
+                  document.getElementById("js-objects-output").innerHTML =
+                  "VATER ------------>";
+                  Object.getOwnPropertyNames(Vater).forEach(function(wert) {
+                    document.getElementById("js-objects-output").innerHTML +=
+                    wert + ': ' + Vater[wert] + "";
+                  });
+                  document.getElementById("js-objects-output").innerHTML +=
+                  "Mutter ------------>";
+                  Object.getOwnPropertyNames(Mutter).forEach(function(wert) {
+                    document.getElementById("js-objects-output").innerHTML +=
+                    wert + ': ' + Mutter[wert] + "";
+                  });
+                  document.getElementById("js-objects-output").innerHTML +=
+                  "Kind1 ------------>";
+                  Object.getOwnPropertyNames(Kind1).forEach(function(wert) {
+                    document.getElementById("js-objects-output").innerHTML +=
+                    wert + ': ' + Kind1[wert] + "";
+                  });
+                  document.getElementById("js-objects-output").innerHTML +=
+                  "Kind2 ------------>";
+                  Object.getOwnPropertyNames(Kind2).forEach(function(wert) {
+                    document.getElementById("js-objects-output").innerHTML +=
+                    wert + ': ' + Kind2[wert] + "";
+                  });
+                }
+
+                // Switch ------------------------------------------------------->
+                switch (selectedInfo) {
+                  case "Kind1Info":
+                    Kind1Info();
+                    break;
+                  case "AugenInfo":
+                    AugenInfo();
+                    break;
+                  case "inDgeboren":
+                    inDgeboren();
+                    break;
+                  case "GetItAll":
+                    GetItAll();
+                    break;
+                  default:
+                    document.getElementById("js-objects-output").innerHTML =
+                    "Wat?! Hamwa nüsch!";
+                }
+              }
+            </pre>
+          </code>
+          <select id="js-objects-select" name="js-objects-select">
+            <option value="Kind1Info">Was wissen wir über Anne Leber-Scholl?</option>
+            <option value="AugenInfo">Wer hat blaue Augen?</option>
+            <option value="Kind2Info">Wie groß ist der Altersunterschied der Kinder?</option>
+            <option value="inDgeboren">Sind alle Familienmitglieder in D geboren?</option>
+            <option value="GetItAll">STASI Modus!</option>
+          </select>
+          <button id="js-objects-button">Senden</button>
+          <h3>Ausgabe</h3>
+          <p id="js-objects-output"></p>
+          <script>
+          <!--
+            // Snippets ------------------------------------------------------->
+
+            //return familie[index].Augenfarbe == "braun";
+
+            // Contructor ----------------------------------------------------->
+
+            function Person(
+              famStatus,
+              firstName,
+              lastName,
+              gender,
+              birthDate,
+              birthLocCity,
+              birthLocCountry,
+              eyeColor){
+              this.Familienstatus = famStatus;
+              this.Vorname = firstName;
+              this.Nachname = lastName;
+              this.Geschlecht = gender;
+              this.Geburtsdatum = birthDate;
+              this.Geburtsort = birthLocCity;
+              this.Land = birthLocCountry;
+              this.Augenfarbe = eyeColor;
+            }
+
+            var Vater = new Person(
+              "Vater",
+              "Julius",
+              "Leber",
+              "m",
+              "16.11.1966",
+              "Biesheim",
+              "Frankreich",
+              "braun");
+            var Mutter = new Person(
+              "Mutter",
+              "Sophie",
+              "Scholl",
+              "w",
+              "09.05.1972",
+              "Forchtenberg",
+              "Deutschland",
+              "blau");
+            var Kind1 = new Person(
+              "Kind",
+              "Anne",
+              "Leber-Scholl",
+              "w",
+              "12.06.1992",
+              "Frankfurt am Main",
+              "Deutschland",
+              "braun");
+            var Kind2 = new Person(
+              "Kind",
+              "Konrad",
+              "Leber-Scholl",
+              "m",
+              "05.01.2000",
+              "Rhöndorf",
+              "Deutschland",
+              "blau");
+
+            familie = [Vater, Mutter, Kind1, Kind2];
+
+            function AlterDiffKinder(){
+              var Kinder = familie.filter(function (Person) {
+                return Person.Familienstatus == "Kind";
+              });
+              result = "";
+              Ergebnis = new Array(2);
+              if (Kinder.length != 0){
+                for(var k = 0; k < Kinder.length; k++){
+                  result = Kinder[k].Geburtsdatum.substring(6);
+                  Ergebnis[k] = parseInt(result);
+                  console.log("GebJahrKinder: " + Ergebnis);
+                  //document.getElementById("js-objects-output").innerHTML +=
+                  //Ergebnis;
+                }
+              } else {
+                console.log("Keine Kinder gefunden.");
+              }
+              //console.log("GebJahrKinder: " + Ergebnis);
+              //var GebDatKinderJahr = result.split(" ",4);
+              //console.log("split 4: " + result);
+              //GebDatKinderJahr = GebDatKinderJahr.toString();
+              //console.log("toString: " + GebDatKinderJahr);
+              //var Altersunterschied = GebDatKinderJahr[0] - GebDatKinderJahr[1];
+              //console.log(Altersunterschied);
+            }
+            AlterDiffKinder();
+
+
+            // onclick -------------------------------------------------------->
+
+            document.getElementById("js-objects-button").onclick = function (){
+
+              // Clears Output Field
+              outputClearer();
+
+              // Get "Select" Values
+              var Info = document.getElementById("js-objects-select");
+              var selectedInfo = Info.options[Info.selectedIndex].value;
+
+              // Was wissen wir über Anne Leber-Scholl?
+              function Kind1Info(){
+                document.getElementById("js-objects-output").innerHTML = Kind1.Vorname +
+                " " + Kind1.Nachname + " (geb. am " + Kind1.Geburtsdatum + " in " + Kind1.Geburtsort +
+                ", " + Kind1.Land + ") ist das erste Kind von " + Mutter.Vorname +
+                " " + Mutter.Nachname + " und " + Vater.Vorname + " " + Vater.Nachname + ".";
+              }
+
+              // Wer hat blaue Augen?
+              function AugenInfo(){
+                var blaueAugen = familie.filter(function (Person) {
+                  return Person.Augenfarbe == "blau";
+                });
+                if (blaueAugen.length != 0){
+                  for(var k = 0; k < blaueAugen.length; k++){
+                    document.getElementById("js-objects-output").innerHTML +=
+                    blaueAugen[k].Vorname + " " + blaueAugen[k].Nachname +
+                    " hat blaue Augen.<br>";
+                  }
+                } else {
+                    document.getElementById("js-objects-output").innerHTML =
+                    "Keiner hat blaue Augen.";
+                }
+              }
+
+              // Wie groß ist der Altersunterschied der Kinder?
+
+
+              // Sind alle Familienmitglieder in D geboren?
+              function inDgeboren(){
+                var nichtDeutsch = familie.filter(function (Person) {
+                return Person.Land != "Deutschland";
+                });
+                if (nichtDeutsch.length != 0){
+                  for(var k = 0; k < nichtDeutsch.length; k++){
+                    document.getElementById("js-objects-output").innerHTML +=
+                    nichtDeutsch[k].Vorname + " " + nichtDeutsch[k].Nachname +
+                    " ist nicht in Deutschland geboren.<br>";
+                  }
+                } else {
+                    document.getElementById("js-objects-output").innerHTML =
+                    "Alle sind in Deutschland geboren.";
+                }
+              }
+
+              // STASI Modus!
+              function GetItAll(){
+                for (var i = 0; i < familie.length; i++){
+                  document.getElementById("js-objects-output").innerHTML +=
+                  "<br><br>" + familie[i].Vorname + " ------------><br><br>";
+                  Object.getOwnPropertyNames(familie[i]).forEach(function(k) {
+                    document.getElementById("js-objects-output").innerHTML +=
+                    k + ': ' + familie[i][k] + "<br>";
+                  });
+                }
+              }
+
+              // Switch ------------------------------------------------------->
+              switch (selectedInfo) {
+                case "Kind1Info":
+                  Kind1Info();
+                  break;
+                case "AugenInfo":
+                  AugenInfo();
+                  break;
+                case "inDgeboren":
+                  inDgeboren();
+                  break;
+                case "GetItAll":
+                  GetItAll();
+                  break;
+                default:
+                  document.getElementById("js-objects-output").innerHTML =
+                  "Wat?! Hamwa nüsch!";
+              }
+            }
+          //-->
+          </script>
+        </article>
+
+      </section>
+      <!-- END JavaScript -->
+
+      <!-- BEGIN Contact ---------------------------------------------------------------------------------------------------------------------->
+      <section id="contact">
+        <h1>Kontakt</h1>
+
+        <article class="contact">
+          <h2>Mehr davon?</h2>
+          <form id="contact" action="" method="post">
+            <h4>Kontaktieren Sie uns heute und erhalten Sie eine Antwort binnen 24 Stunden!</h4>
+            <fieldset>
+              <input placeholder="Ihr Name" type="text" tabindex="1" required>
+            </fieldset>
+            <fieldset>
+              <input placeholder="Ihre Email Adresse" type="email" tabindex="2" required>
+            </fieldset>
+            <fieldset>
+              <input placeholder="Ihre Telefon Nummer" type="tel" tabindex="3" required>
+            </fieldset>
+            <fieldset>
+              <input placeholder="Ihre Website startend mit http://" type="url" tabindex="4" required>
+            </fieldset>
+            <fieldset>
+              <textarea placeholder="Ihre Nachricht ..." tabindex="5" required></textarea>
+            </fieldset>
+            <fieldset>
+              <button name="submit" type="submit" id="contact-submit" data-submit="... Senden">Senden</button>
+            </fieldset>
+          </form>
+          <code>
+            form ... h4 ... fieldset ... input placeholder="Your name" type="text" tabindex="1" required ...
+          </code>
+        </article>
+
+      </section>
+      <!-- END Contact -->
+    </main>
+
+    <!-- JavaScript Files ----------------------------------------------------->
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script src="js/prettify.js"></script>
+    <script src="js/jquery-pretty-pre.js"></script>
+    <script>
+    <!--
+
+      // JavaScript ONLOAD ---------------------------------------------------->
+      window.onload = function () {
+
+        // add class "prettyprint" to PRE for prettify
+        function setPREclasses() {
+          var allPREs = document.getElementsByTagName("pre");
+          for (i = 0; i < allPREs.length; i++){
+            allPREs[i].className += "prettyprint";
+          }
+        }
+        setPREclasses();
+
+        // prettify.js launcher
+        prettyPrint();
+
+      }
+
+      // JQUERY --------------------------------------------------------------->
+      $( document ).ready(function() {
+
+        // NAV
+        $("nav a#all").click(function() {
+          $("section").show(600);
+        });
+        $("nav a#HTML5").click(function() {
+          $('section').not('#HTML5').hide(600);
+          $("section#HTML5").show(600);
+        });
+        $("nav a#CSS3").click(function() {
+          $('section').not('#CSS3').hide(600);
+          $("section#CSS3").show(600);
+        });
+        $("nav a#JavaScript").click(function() {
+          $('section').not('#JavaScript').hide(600);
+          $("section#JavaScript").show(600);
+        });
+        $("nav a#contact").click(function() {
+          $('section').not('#contact').hide(600);
+          $("section#contact").show(600);
+        });
+
+        // Prettify add class to pre
+        //$("pre").addClass("prettyprint");
+
+        // Pretty Pre
+        $("pre").prettyPre();
+
+      });
+
+      // Clear outputs before innerHTML
+      function outputClearer(){
+        $("[id$=-output]").html("");
+      }
+
+
+    //-->
+    </script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+
+body {
+  font-family: sans-serif;
+  font-size: 0.9em;
+}
+
+
+.content-block::after {
+  display: block;
+  content: " **************** ";
+  color: firebrick;
+  font-size: 2em;
+}
