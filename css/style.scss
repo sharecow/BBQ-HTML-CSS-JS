@@ -171,23 +171,24 @@ article a {
   color: $font-color;
 }
 
-article#javascript-dad div {
-  float: left;
-  width: 20%;
-  height: 30%;
-  margin: 2%;
-  padding: 2%;
+article#javascript-dad div#dad-div {
+  padding: 0.4em 0 0 0.4em;
+  width: 25em;
+  height: 25em;
   background-color: $code-bg-color;
-  box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
-  color: $code-color;
+}
+article#javascript-dad div[id^=dropzone]{
+  float: left;
+  border: 1px solid transparent;
+  width: 8em;
+  height: 8em;
 }
 article#javascript-dad p[id^=drag] {
+  margin: 0;
+  padding: 0;
   float: left;
-  margin: 1em;
-  border-radius: 50%;
-  border: 2px solid #333;
-  width: 2em;
-  height: 2em;
+  width: 8em;
+  height: 8em;
 }
 article#javascript-dad p#drag1 {
 	background: #dfac20;
@@ -205,7 +206,13 @@ article#javascript-dad p#drag5 {
 	background: purple;
 }
 article#javascript-dad p#drag6 {
-	background: white;
+	background: $blond;
+}
+article#javascript-dad p#drag7 {
+	background: $laurelgreen;
+}
+article#javascript-dad p#drag8 {
+	background: $platinum;
 }
 [draggable] {
   -moz-user-select: none;
