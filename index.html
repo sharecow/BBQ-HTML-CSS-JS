@@ -804,19 +804,6 @@
                   age:50,
                   eyeColor:"blue"
               };
-
-              document.getElementById("demo").innerHTML =
-              person.firstName + " " + person.lastName;
-
-              // Using the JavaScript Keyword new
-              var person = new Object();
-              person.firstName = "John";
-              person.lastName = "Doe";
-              person.age = 50;
-              person.eyeColor = "blue";
-
-              document.getElementById("demo").innerHTML =
-              person.firstName + " " + person.lastName;
             </pre>
           </code>
           <p>The values are written as <strong>name:value</strong> pairs (name and
@@ -855,7 +842,6 @@
                   }
               };
               document.getElementById("demo").innerHTML = person.fullName();
-
 
               // OR If you access the fullName method, without (),
               // it will return the function definition:
@@ -904,13 +890,15 @@
               // Contructor ----------------------------------------------------->
 
               function Person(
-              firstName,
-              lastName,
-              gender,
-              birthDate,
-              birthLocCity,
-              birthLocCountry,
-              eyeColor){
+                famStatus,
+                firstName,
+                lastName,
+                gender,
+                birthDate,
+                birthLocCity,
+                birthLocCountry,
+                eyeColor){
+                this.Familienstatus = famStatus;
                 this.Vorname = firstName;
                 this.Nachname = lastName;
                 this.Geschlecht = gender;
@@ -920,45 +908,45 @@
                 this.Augenfarbe = eyeColor;
               }
 
-              var familie = [
-                 new Person(
-                   "Julius",
-                   "Leber",
-                   "m",
-                   "16.11.1966",
-                   "Biesheim",
-                   "Frankreich",
-                   "braun"),
-                 new Person(
-                   "Sophie",
-                   "Scholl",
-                   "w",
-                   "09.05.1972",
-                   "Forchtenberg",
-                   "Deutschland",
-                   "blau"),
-                 new Person(
-                   "Anne",
-                   "Leber-Scholl",
-                   "w",
-                   "12.06.1992",
-                   "Frankfurt am Main",
-                   "Deutschland",
-                   "braun"),
-                 new Person(
-                   "Konrad",
-                   "Leber-Scholl",
-                   "m",
-                   "05.01.2000",
-                   "Rhöndorf",
-                   "Deutschland",
-                   "blau")
-              ];
+              var Vater = new Person(
+                "Vater",
+                "Julius",
+                "Leber",
+                "m",
+                "16.11.1966",
+                "Biesheim",
+                "Frankreich",
+                "braun");
+              var Mutter = new Person(
+                "Mutter",
+                "Sophie",
+                "Scholl",
+                "w",
+                "09.05.1972",
+                "Forchtenberg",
+                "Deutschland",
+                "blau");
+              var Kind1 = new Person(
+                "Kind",
+                "Anne",
+                "Leber-Scholl",
+                "w",
+                "12.06.1992",
+                "Frankfurt am Main",
+                "Deutschland",
+                "braun");
+              var Kind2 = new Person(
+                "Kind",
+                "Konrad",
+                "Leber-Scholl",
+                "m",
+                "05.01.2000",
+                "Rhöndorf",
+                "Deutschland",
+                "blau");
 
-              var Vater = familie[0];
-              var Mutter = familie[1];
-              var Kind1 = familie[2];
-              var Kind2 = familie[3];
+              familie = [Vater, Mutter, Kind1, Kind2];
+
 
               // onclick -------------------------------------------------------->
 
@@ -982,69 +970,71 @@
                 // Wer hat blaue Augen?
                 function AugenInfo(){
                   var blaueAugen = familie.filter(function (Person) {
-                    return Person.Augenfarbe == "blau"
+                    return Person.Augenfarbe == "blau";
                   });
-                  var blaueAugenVornamen = "";
-                  for (var i=0; i < blaueAugen.length; i++) {
-                    blaueAugenVornamen = blaueAugen[i].Vorname;
-                    //var mySplitResult = blaueAugenVornamen.join(" und ");
-                    //console.log(mySplitResult);
-                    document.getElementById("js-objects-output").innerHTML +=
-                    blaueAugenVornamen;
+                  if (blaueAugen.length != 0){
+                    for(var k = 0; k < blaueAugen.length; k++){
+                      document.getElementById("js-objects-output").innerHTML +=
+                      blaueAugen[k].Vorname + " " + blaueAugen[k].Nachname +
+                      " hat blaue Augen.";
+                    }
+                  } else {
+                      document.getElementById("js-objects-output").innerHTML =
+                      "Keiner hat blaue Augen.";
                   }
-                  document.getElementById("js-objects-output").innerHTML +=
-                  " hat/haben blaue Augen."
                 }
 
                 // Wie groß ist der Altersunterschied der Kinder?
-
+                function AlterDiffKinder(){
+                  var Kinder = familie.filter(function (Person) {
+                    return Person.Familienstatus == "Kind";
+                  });
+                  Geburtsjahre = "";
+                  GeburtsjahreArray = [];
+                  if (Kinder.length != 0){
+                    for(var k = 0; k < Kinder.length; k++){
+                      Geburtsjahre = Kinder[k].Geburtsdatum.substring(6);
+                      GeburtsjahreArray.push(parseInt(Geburtsjahre));
+                    }
+                  } else {
+                    document.getElementById("js-objects-output").innerHTML +=
+                    "Keine Kinder gefunden.";
+                  }
+                  Ergebnis = GeburtsjahreArray[0] - GeburtsjahreArray[1];
+                  // Convert negative number to positive
+                  Ergebnis *= -1;
+                  document.getElementById("js-objects-output").innerHTML +=
+                  "Der Altersunterschied zwischen den Kindern beträgt: " + Ergebnis +
+                  " Jahre.";
+                }
 
                 // Sind alle Familienmitglieder in D geboren?
                 function inDgeboren(){
                   var nichtDeutsch = familie.filter(function (Person) {
-                    return Person.Land != "Deutschland";
+                  return Person.Land != "Deutschland";
                   });
-                  if (nichtDeutsch == 0){
-                    document.getElementById("js-objects-output").innerHTML =
-                    "Alle sind in Deutschland geboren.";
-                  } else {
-                    var nichtDeutschVornamen = "";
-                    for (var i=0; i < nichtDeutsch.length; i++) {
-                      nichtDeutschVornamen = nichtDeutsch[i].Vorname;
+                  if (nichtDeutsch.length != 0){
+                    for(var k = 0; k < nichtDeutsch.length; k++){
                       document.getElementById("js-objects-output").innerHTML +=
-                      nichtDeutschVornamen;
+                      nichtDeutsch[k].Vorname + " " + nichtDeutsch[k].Nachname +
+                      " ist nicht in Deutschland geboren.";
                     }
-                    document.getElementById("js-objects-output").innerHTML +=
-                    " - nicht in Deutschland geboren.";
+                  } else {
+                      document.getElementById("js-objects-output").innerHTML =
+                      "Alle sind in Deutschland geboren.";
                   }
                 }
 
                 // STASI Modus!
                 function GetItAll(){
-                  document.getElementById("js-objects-output").innerHTML =
-                  "VATER ------------>";
-                  Object.getOwnPropertyNames(Vater).forEach(function(wert) {
+                  for (var i = 0; i < familie.length; i++){
                     document.getElementById("js-objects-output").innerHTML +=
-                    wert + ': ' + Vater[wert] + "";
-                  });
-                  document.getElementById("js-objects-output").innerHTML +=
-                  "Mutter ------------>";
-                  Object.getOwnPropertyNames(Mutter).forEach(function(wert) {
-                    document.getElementById("js-objects-output").innerHTML +=
-                    wert + ': ' + Mutter[wert] + "";
-                  });
-                  document.getElementById("js-objects-output").innerHTML +=
-                  "Kind1 ------------>";
-                  Object.getOwnPropertyNames(Kind1).forEach(function(wert) {
-                    document.getElementById("js-objects-output").innerHTML +=
-                    wert + ': ' + Kind1[wert] + "";
-                  });
-                  document.getElementById("js-objects-output").innerHTML +=
-                  "Kind2 ------------>";
-                  Object.getOwnPropertyNames(Kind2).forEach(function(wert) {
-                    document.getElementById("js-objects-output").innerHTML +=
-                    wert + ': ' + Kind2[wert] + "";
-                  });
+                    + familie[i].Vorname + " ------------>";
+                    Object.getOwnPropertyNames(familie[i]).forEach(function(k) {
+                      document.getElementById("js-objects-output").innerHTML +=
+                      k + ': ' + familie[i][k] + "";
+                    });
+                  }
                 }
 
                 // Switch ------------------------------------------------------->
@@ -1057,6 +1047,9 @@
                     break;
                   case "inDgeboren":
                     inDgeboren();
+                    break;
+                  case "AlterDiffKinder":
+                    AlterDiffKinder();
                     break;
                   case "GetItAll":
                     GetItAll();
@@ -1071,7 +1064,7 @@
           <select id="js-objects-select" name="js-objects-select">
             <option value="Kind1Info">Was wissen wir über Anne Leber-Scholl?</option>
             <option value="AugenInfo">Wer hat blaue Augen?</option>
-            <option value="Kind2Info">Wie groß ist der Altersunterschied der Kinder?</option>
+            <option value="AlterDiffKinder">Wie groß ist der Altersunterschied der Kinder?</option>
             <option value="inDgeboren">Sind alle Familienmitglieder in D geboren?</option>
             <option value="GetItAll">STASI Modus!</option>
           </select>
@@ -1080,9 +1073,6 @@
           <p id="js-objects-output"></p>
           <script>
           <!--
-            // Snippets ------------------------------------------------------->
-
-            //return familie[index].Augenfarbe == "braun";
 
             // Contructor ----------------------------------------------------->
 
@@ -1144,33 +1134,6 @@
 
             familie = [Vater, Mutter, Kind1, Kind2];
 
-            function AlterDiffKinder(){
-              var Kinder = familie.filter(function (Person) {
-                return Person.Familienstatus == "Kind";
-              });
-              result = "";
-              Ergebnis = new Array(2);
-              if (Kinder.length != 0){
-                for(var k = 0; k < Kinder.length; k++){
-                  result = Kinder[k].Geburtsdatum.substring(6);
-                  Ergebnis[k] = parseInt(result);
-                  console.log("GebJahrKinder: " + Ergebnis);
-                  //document.getElementById("js-objects-output").innerHTML +=
-                  //Ergebnis;
-                }
-              } else {
-                console.log("Keine Kinder gefunden.");
-              }
-              //console.log("GebJahrKinder: " + Ergebnis);
-              //var GebDatKinderJahr = result.split(" ",4);
-              //console.log("split 4: " + result);
-              //GebDatKinderJahr = GebDatKinderJahr.toString();
-              //console.log("toString: " + GebDatKinderJahr);
-              //var Altersunterschied = GebDatKinderJahr[0] - GebDatKinderJahr[1];
-              //console.log(Altersunterschied);
-            }
-            AlterDiffKinder();
-
 
             // onclick -------------------------------------------------------->
 
@@ -1209,7 +1172,28 @@
               }
 
               // Wie groß ist der Altersunterschied der Kinder?
-
+              function AlterDiffKinder(){
+                var Kinder = familie.filter(function (Person) {
+                  return Person.Familienstatus == "Kind";
+                });
+                Geburtsjahre = "";
+                GeburtsjahreArray = [];
+                if (Kinder.length != 0){
+                  for(var k = 0; k < Kinder.length; k++){
+                    Geburtsjahre = Kinder[k].Geburtsdatum.substring(6);
+                    GeburtsjahreArray.push(parseInt(Geburtsjahre));
+                  }
+                } else {
+                  document.getElementById("js-objects-output").innerHTML +=
+                  "Keine Kinder gefunden.";
+                }
+                Ergebnis = GeburtsjahreArray[0] - GeburtsjahreArray[1];
+                // Convert negative number to positive
+                Ergebnis *= -1;
+                document.getElementById("js-objects-output").innerHTML +=
+                "Der Altersunterschied zwischen den Kindern beträgt: " + Ergebnis +
+                " Jahre.";
+              }
 
               // Sind alle Familienmitglieder in D geboren?
               function inDgeboren(){
@@ -1251,6 +1235,9 @@
                 case "inDgeboren":
                   inDgeboren();
                   break;
+                case "AlterDiffKinder":
+                  AlterDiffKinder();
+                  break;
                 case "GetItAll":
                   GetItAll();
                   break;
@@ -1259,6 +1246,54 @@
                   "Wat?! Hamwa nüsch!";
               }
             }
+          //-->
+          </script>
+        </article>
+
+        <article>
+          <h2>Regular Expressions (RegEx)</h2>
+          <code>
+            <pre>
+              document.getElementById("RegEx-button").onclick = function validate(){
+
+                var input = document.getElementById("RegEx-input").value;
+                var reg = /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/
+
+                if (reg.test(input) == false){
+                  document.getElementById("RegEx-output").innerHTML =
+                  ((input == 0) ? "Das" : input) +
+                  " ist kein valides Datum (valide: TT-MM-JJJJ oder TT.MM.JJJJ).";
+                } else {
+                  document.getElementById("RegEx-output").innerHTML =
+                  input + " wird akzeptiert. :)";
+                }
+
+              };
+            </pre>
+          </code>
+          <input id="RegEx-input" name="birthdate">
+          <button id="RegEx-button">Senden</button>
+          <h3>Ausgabe</h3>
+          <p id="RegEx-output"></p>
+          <script>
+          <!--
+            document.getElementById("RegEx-button").onclick = function RegEx(){
+
+              var input = document.getElementById("RegEx-input").value;
+              var reg = /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/
+
+              if (reg.test(input) == false){
+                document.getElementById("RegEx-output").className = "false";
+                document.getElementById("RegEx-output").innerHTML =
+                ((input == 0) ? "Das" : input) +
+                " ist kein valides Datum (valide: TT-MM-JJJJ oder TT.MM.JJJJ).";
+              } else {
+                document.getElementById("RegEx-output").className = "true";
+                document.getElementById("RegEx-output").innerHTML =
+                input + " wird akzeptiert. :)";
+              }
+
+            };
           //-->
           </script>
         </article>

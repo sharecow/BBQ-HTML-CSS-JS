@@ -52,10 +52,10 @@ body {
   background-color: $bg-color;
   color: $font-color;
   line-height: 1.5;
-  max-width: 800px;
+  max-width: 960px;
   font: {
     family: "Oswald", MuseoSlab300, "Open Sans", "lucida sans unicode", "lucida grande", "Trebuchet MS", verdana, arial, helvetica, helve, sans-serif;
-    size: 0.85em;
+    size: 0.8em;
   }
 }
 
@@ -156,6 +156,7 @@ p {
     font-family: monospace;
     font-size: 1.3em;
     color: $code-color;
+    transition: font-weight 1s, color 0.7s;
     &.true {
       color: $green;
     }
@@ -167,6 +168,16 @@ p {
 
 article a {
   color: $font-color;
+}
+
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
 }
 
 form  {
