@@ -1250,7 +1250,7 @@
           </script>
         </article>
 
-        <article>
+        <article id="javascript-regex">
           <h2>Regular Expressions (RegEx)</h2>
           <code>
             <pre>
@@ -1298,10 +1298,117 @@
           </script>
         </article>
 
+        <article id="javascript-dad">
+          <h2>Drag and Drop</h2>
+          <h3>Definition</h3>
+          <p>... ist Bestandteil des HTML5 Standards. Jedes Element kann "draggeable" sein.</p>
+          <p><mark>Auch wenn die Browser-Unterstützung gut aussieht, ist HTML5-Drag & Drop auf mobilen Geräten mit iOS und Android (noch) nicht möglich.</mark></p>
+          <code>
+            <pre>
+              // Element "draggable" machen:
+              &lt;img ... draggable="true"&gt;
+
+              // Definieren, was "gedraggt" wird über das Attribute „ondragstart“
+              &lt;img… draggable="true" ondragstart="drag(event)"&gt;
+              /* ... oder dynamisch - nach dem Laden des Dokuments werden mittels querySelectorAll alle Elemente mit dem Attribut draggable="true" ermittelt. In einer Schleife werden dann durch addEventListener die Event-Handler dynamisch angebunden.*/
+              window.addEventListener("load",function () {
+                var elms = document.querySelectorAll("[draggable=true]")
+                for (var i = 0; i < elms.length; i++) {
+                  var draggable = elms[i];
+                  draggable.addEventListener("dragstart", drag);
+                };
+              });
+
+              /* Der Vorgang des Ziehens wäre nicht möglich, ohne dass die Ereignisse in einem dataTransferObject gespeichert werden können. Deshalb haben alle drag-Events eine dataTransfer-Eigenschaft, die mit Methoden gesetzt und ausgelesen werden kann. */
+              function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+              }
+
+              // Definieren, wohin „gedroppt“ wird über das Attribute „ondragover“ und einer function
+              // ev.preventDefault() verhindert das Standard-Verhalten des Elementes
+              &lt;div … ondragover="allowDroprop(event)"&gt;
+              function allowDroprop(ev) {
+                ev.preventDefault();
+              }
+
+              // "droppen" über das Attribut "ondrop" und einer function
+              // ev.preventDefault() verhindert das Standard-Verhalten des Elementes
+              // Standard: als Link öffnen beim "droppen"
+              &lt;div … ondragover="allowDroprop(event)" ondrop="drop(event)"&gt;
+              function drop(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                ev.target.appendChild(document.getElementById(data));
+              }
+            </pre>
+          </code>
+          <h3>Beispiel</h3>
+          <code>
+            <pre>
+              &lt;div id="div1" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+                &lt;p draggable="true" ondragstart="ziehen(event)" id="drag1"&gt;&lt;/p&gt;
+                &lt;p draggable="true" ondragstart="ziehen(event)" id="drag2"&gt;&lt;/p&gt;
+                &lt;p draggable="true" ondragstart="ziehen(event)" id="drag3"&gt;&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div id="div2" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+                &lt;p draggable="true" ondragstart="ziehen(event)" id="drag4"&gt;&lt;/p&gt;
+                &lt;p draggable="true" ondragstart="ziehen(event)" id="drag5"&gt;&lt;/p&gt;
+                &lt;p draggable="true" ondragstart="ziehen(event)" id="drag6"&gt;&lt;/p&gt;
+              &lt;/div&gt;
+            </pre>
+          </code>
+          <code>
+            <pre>
+              function ziehen(ev) {
+                ev.dataTransfer.setData('text', ev.target.id);
+              }
+
+              function ablegenErlauben(ev) {
+                ev.preventDefault();
+              }
+
+              function ablegen(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData('text');
+                ev.target.appendChild(document.getElementById(data));
+              }
+            </pre>
+          </code>
+          <h3>Ausgabe</h3>
+          <div id="div1" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)">
+            <p draggable="true" ondragstart="ziehen(event)" id="drag1"></p>
+            <p draggable="true" ondragstart="ziehen(event)" id="drag2"></p>
+            <p draggable="true" ondragstart="ziehen(event)" id="drag3"></p>
+          </div>
+          <div id="div2" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)">
+            <p draggable="true" ondragstart="ziehen(event)" id="drag4"></p>
+            <p draggable="true" ondragstart="ziehen(event)" id="drag5"></p>
+            <p draggable="true" ondragstart="ziehen(event)" id="drag6"></p>
+          </div>
+          <script>
+          <!--
+            function ziehen(ev) {
+              ev.dataTransfer.setData('text', ev.target.id);
+            }
+
+            function ablegenErlauben(ev) {
+              ev.preventDefault();
+            }
+
+            function ablegen(ev) {
+              ev.preventDefault();
+              var data = ev.dataTransfer.getData('text');
+              ev.target.appendChild(document.getElementById(data));
+            }
+          //-->
+          </script>
+        </article>
+
       </section>
       <!-- END JavaScript -->
 
       <!-- BEGIN Contact ---------------------------------------------------------------------------------------------------------------------->
+      <!--
       <section id="contact">
         <h1>Kontakt</h1>
 
@@ -1334,8 +1441,9 @@
         </article>
 
       </section>
-      <!-- END Contact -->
+    -->
     </main>
+    <footer></footer>
 
     <!-- JavaScript Files ----------------------------------------------------->
     <script src="js/jquery-3.1.0.min.js"></script>

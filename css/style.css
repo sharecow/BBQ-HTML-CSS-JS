@@ -49,10 +49,11 @@ nav {
 
 main {
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 10% auto;
   padding: 1.6%; }
 
 section {
+  clear: both;
   padding: 6%; }
 
 section#contact {
@@ -110,6 +111,42 @@ p {
 article a {
   color: #c6c6c6; }
 
+article#javascript-dad div {
+  float: left;
+  width: 20%;
+  height: 30%;
+  margin: 2%;
+  padding: 2%;
+  background-color: #202020;
+  box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+  color: #dadbb1; }
+
+article#javascript-dad p[id^=drag] {
+  float: left;
+  margin: 1em;
+  border-radius: 50%;
+  border: 2px solid #333;
+  width: 2em;
+  height: 2em; }
+
+article#javascript-dad p#drag1 {
+  background: #dfac20; }
+
+article#javascript-dad p#drag2 {
+  background: #3983ab; }
+
+article#javascript-dad p#drag3 {
+  background: #c32e04; }
+
+article#javascript-dad p#drag4 {
+  background: #5a9900; }
+
+article#javascript-dad p#drag5 {
+  background: purple; }
+
+article#javascript-dad p#drag6 {
+  background: white; }
+
 [draggable] {
   -moz-user-select: none;
   -khtml-user-select: none;
@@ -118,6 +155,12 @@ article a {
   /* Required to make elements draggable in old WebKit */
   -khtml-user-drag: element;
   -webkit-user-drag: element; }
+
+[draggable=true] {
+  cursor: move; }
+
+[draggable=false] {
+  cursor: not-allowed; }
 
 form {
   display: table;
