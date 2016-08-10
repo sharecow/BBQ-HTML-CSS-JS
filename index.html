@@ -1345,15 +1345,24 @@
           <h3>Beispiel</h3>
           <code>
             <pre>
-              &lt;div id="div1" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
-                &lt;p draggable="true" ondragstart="ziehen(event)" id="drag1"&gt;&lt;/p&gt;
-                &lt;p draggable="true" ondragstart="ziehen(event)" id="drag2"&gt;&lt;/p&gt;
-                &lt;p draggable="true" ondragstart="ziehen(event)" id="drag3"&gt;&lt;/p&gt;
-              &lt;/div&gt;
-              &lt;div id="div2" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
-                &lt;p draggable="true" ondragstart="ziehen(event)" id="drag4"&gt;&lt;/p&gt;
-                &lt;p draggable="true" ondragstart="ziehen(event)" id="drag5"&gt;&lt;/p&gt;
-                &lt;p draggable="true" ondragstart="ziehen(event)" id="drag6"&gt;&lt;/p&gt;
+              &lt;div id=dad-div&gt;
+                &lt;div id="dropzone1" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+                  &lt;p draggable="true" ondragstart="ziehen(event)" id="drag1"&gt;&lt;/p&gt;&lt;/div&gt;
+                &lt;div id="dropzone2" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+                  &lt;p draggable="true" ondragstart="ziehen(event)" id="drag2"&gt;&lt;/p&gt;&lt;/div&gt;
+                &lt;div id="dropzone3" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+                  &lt;p draggable="true" ondragstart="ziehen(event)" id="drag3"&gt;&lt;/p&gt;&lt;/div&gt;
+                &lt;div id="dropzone4" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+                  &lt;p draggable="true" ondragstart="ziehen(event)" id="drag4"&gt;&lt;/p&gt;&lt;/div&gt;
+                &lt;div id="dropzone5" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+                  &lt;p draggable="true" ondragstart="ziehen(event)" id="drag5"&gt;&lt;/p&gt;&lt;/div&gt;
+                &lt;div id="dropzone6" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+                  &lt;p draggable="true" ondragstart="ziehen(event)" id="drag6"&gt;&lt;/p&gt;&lt;/div&gt;
+                &lt;div id="dropzone7" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+                  &lt;p draggable="true" ondragstart="ziehen(event)" id="drag7"&gt;&lt;/p&gt;&lt;/div&gt;
+                &lt;div id="dropzone8" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+                  &lt;p draggable="true" ondragstart="ziehen(event)" id="drag8"&gt;&lt;/p&gt;&lt;/div&gt;
+                &lt;div id="dropzone9" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;&lt;/div&gt;
               &lt;/div&gt;
             </pre>
           </code>
@@ -1368,27 +1377,50 @@
               }
 
               function ablegen(ev) {
-                ev.preventDefault();
-                var data = ev.dataTransfer.getData('text');
-                ev.target.appendChild(document.getElementById(data));
+                if (ev.target.hasChildNodes()) {
+                  console.log("Hat Kind.")
+                  return;
+                } else {
+                  ev.preventDefault();
+                  var data = ev.dataTransfer.getData('text');
+                  ev.target.appendChild(document.getElementById(data));
+                  console.log("Hat kein Kind.")
+                }
               }
             </pre>
           </code>
-          <h3>Ausgabe</h3>
-          <div id="div1" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)">
-            <p draggable="true" ondragstart="ziehen(event)" id="drag1"></p>
-            <p draggable="true" ondragstart="ziehen(event)" id="drag2"></p>
-            <p draggable="true" ondragstart="ziehen(event)" id="drag3"></p>
-          </div>
-          <div id="div2" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)">
-            <p draggable="true" ondragstart="ziehen(event)" id="drag4"></p>
-            <p draggable="true" ondragstart="ziehen(event)" id="drag5"></p>
-            <p draggable="true" ondragstart="ziehen(event)" id="drag6"></p>
+          <h3>Ausgabe 2</h3>
+          <div id=dad-div>
+            <div id="dropzone1">
+              <p draggable="true" ondragstart="ziehen(event)" id="drag1"></p></div>
+            <div id="dropzone2">
+              <p draggable="true" ondragstart="ziehen(event)" id="drag2"></p></div>
+            <div id="dropzone3">
+              <p draggable="true" ondragstart="ziehen(event)" id="drag3"></p></div>
+            <div id="dropzone4">
+              <p draggable="true" ondragstart="ziehen(event)" id="drag4"></p></div>
+            <div id="dropzone5">
+              <p draggable="true" ondragstart="ziehen(event)" id="drag5"></p></div>
+            <div id="dropzone6">
+              <p draggable="true" ondragstart="ziehen(event)" id="drag6"></p></div>
+            <div id="dropzone7">
+              <p draggable="true" ondragstart="ziehen(event)" id="drag7"></p></div>
+            <div id="dropzone8">
+              <p draggable="true" ondragstart="ziehen(event)" id="drag8"></p></div>
+            <div id="dropzone9" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"></div>
           </div>
           <script>
           <!--
             function ziehen(ev) {
+              // Name des ausloesenden Objekts
+              name = event.target.id;
+              // Parent des ausloesenden Objektes finden mit ID
+              vater = document.getElementById(name).parentNode.id;
               ev.dataTransfer.setData('text', ev.target.id);
+              // Attribute hinzufuegen(Muss wieder Droppable gesetzt werden)
+              document.getElementById(vater).setAttribute("ondrop", "ablegen(event)");
+              document.getElementById(vater).setAttribute("ondragover", "ablegenErlauben(event)");
+              console.log(name + vater);
             }
 
             function ablegenErlauben(ev) {
@@ -1399,6 +1431,10 @@
               ev.preventDefault();
               var data = ev.dataTransfer.getData('text');
               ev.target.appendChild(document.getElementById(data));
+              // Entfernen der Attribute nach Ablegen(Sperren des Divs)
+              ev.target.removeAttribute("ondrop");
+              ev.target.removeAttribute("ondragover");
+              console.log(name + vater);
             }
           //-->
           </script>

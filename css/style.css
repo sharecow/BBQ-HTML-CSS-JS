@@ -111,23 +111,24 @@ p {
 article a {
   color: #c6c6c6; }
 
-article#javascript-dad div {
+article#javascript-dad div#dad-div {
+  padding: 0.4em 0 0 0.4em;
+  width: 25em;
+  height: 25em;
+  background-color: #202020; }
+
+article#javascript-dad div[id^=dropzone] {
   float: left;
-  width: 20%;
-  height: 30%;
-  margin: 2%;
-  padding: 2%;
-  background-color: #202020;
-  box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
-  color: #dadbb1; }
+  border: 1px solid transparent;
+  width: 8em;
+  height: 8em; }
 
 article#javascript-dad p[id^=drag] {
+  margin: 0;
+  padding: 0;
   float: left;
-  margin: 1em;
-  border-radius: 50%;
-  border: 2px solid #333;
-  width: 2em;
-  height: 2em; }
+  width: 8em;
+  height: 8em; }
 
 article#javascript-dad p#drag1 {
   background: #dfac20; }
@@ -145,7 +146,13 @@ article#javascript-dad p#drag5 {
   background: purple; }
 
 article#javascript-dad p#drag6 {
-  background: white; }
+  background: #F4F1BB; }
+
+article#javascript-dad p#drag7 {
+  background: #B0BC98; }
+
+article#javascript-dad p#drag8 {
+  background: #E6EBE0; }
 
 [draggable] {
   -moz-user-select: none;
