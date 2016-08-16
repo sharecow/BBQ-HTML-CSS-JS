@@ -950,7 +950,7 @@
 
               // onclick -------------------------------------------------------->
 
-              document.getElementById("js-objects-button").onclick = function (){
+              document.getElementById("js-objects-select").onchange = function (){
 
                 // Clears Output Field
                 outputClearer();
@@ -1062,13 +1062,13 @@
             </pre>
           </code>
           <select id="js-objects-select" name="js-objects-select">
+            <option value="">Wähle eine Option ...</option>
             <option value="Kind1Info">Was wissen wir über Anne Leber-Scholl?</option>
             <option value="AugenInfo">Wer hat blaue Augen?</option>
             <option value="AlterDiffKinder">Wie groß ist der Altersunterschied der Kinder?</option>
             <option value="inDgeboren">Sind alle Familienmitglieder in D geboren?</option>
             <option value="GetItAll">STASI Modus!</option>
           </select>
-          <button id="js-objects-button">Senden</button>
           <h3>Ausgabe</h3>
           <p id="js-objects-output"></p>
           <script>
@@ -1137,7 +1137,7 @@
 
             // onclick -------------------------------------------------------->
 
-            document.getElementById("js-objects-button").onclick = function (){
+            document.getElementById("js-objects-select").onchange = function (){
 
               // Clears Output Field
               outputClearer();

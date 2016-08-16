@@ -19,8 +19,12 @@ body {
   color: #c6c6c6;
   line-height: 1.5;
   max-width: 960px;
-  font-family: "Oswald", MuseoSlab300, "Open Sans", "lucida sans unicode", "lucida grande", "Trebuchet MS", verdana, arial, helvetica, helve, sans-serif;
-  font-size: 0.8em; }
+  font-family: "TitilliumMedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.85em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility; }
 
 header {
   margin-bottom: 5%; }
@@ -255,7 +259,7 @@ strong {
   font-weight: bold; }
 
 mark {
-  padding: 0 0.2em;
+  padding: 0.4em;
   color: #2F2F2F;
   background-color: #d6c74c; }
 
