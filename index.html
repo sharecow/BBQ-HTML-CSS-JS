@@ -1440,6 +1440,98 @@
           </script>
         </article>
 
+        <article id="javascript-ajax">
+          <h2>AJAX (Asynchronous JavaScript and XML)</h2>
+          <h3>Definition</h3>
+          <p>AJAX allows web pages to be updated asynchronously by exchanging small amounts of data with the server behind the scenes. This means that it is possible to update parts of a web page, without reloading the whole page.</p>
+          <p><mark>AJAX is a misleading name. You don't have to understand XML to use AJAX.</mark></p>
+          <h3>AJAX - Create an XMLHttpRequest Object</h3>
+          <code>
+            <pre>
+              // Syntax for creating an XMLHttpRequest object
+              xhttp = new XMLHttpRequest();
+            </pre>
+          </code>
+          <h3>AJAX - Send a Request To a Server</h3>
+          <code>
+            <pre>
+              /* GET or POST?
+              GET is simpler and faster than POST, and can be used in most cases.
+              However, always use POST requests when:
+              A cached file is not an option (update a file or database on the server).
+              Sending a large amount of data to the server (POST has no size limitations).
+              Sending user input (which can contain unknown characters), POST is more robust and secure than GET. */
+
+              // A simple GET request
+              xhttp.open("GET", "demo_get.asp", true);
+              xhttp.send();
+
+              /* In the example above, you may get a cached result.
+               To avoid this, add a unique ID to the URL: */
+              xhttp.open("GET", "demo_get.asp?t=" + Math.random(), true);
+              xhttp.send();
+
+              /* If you want to send information with the GET method, add the information to the URL: */
+              xhttp.open("GET", "demo_get2.asp?fname=Henry&amp;lname=Ford", true);
+              xhttp.send();
+
+              // A simple POST request:
+              xhttp.open("POST", "demo_post.asp", true);
+              xhttp.send();
+
+              /* To POST data like an HTML form, add an HTTP header with setRequestHeader(). Specify the data you want to send in the send() method:*/
+              xhttp.open("POST", "ajax_test.asp", true);
+              xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+              xhttp.send("fname=Henry&amp;lname=Ford");
+            </pre>
+          </code>
+          <h3>Ausgabe</h3>
+          <p id="javascript-ajax-output"></p>
+          <script>
+          <!--
+            function loadContent() {
+              output = document.getElementById("javascript-ajax-output");
+              xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange=function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                  output.innerHTML = xhttp.responseText;
+                } else {
+                  output.innerHTML = "Keine Verbindung."
+                }
+              };
+              xhttp.open("GET", "javascript-ajax-output.txt", true);
+              xhttp.send();
+            }
+            loadContent();
+          //-->
+          </script>
+        </article>
+
+        <article id="javascript-DOM">
+          <h2>DOM Manipulation</h2>
+          <h3>Elemente erstellen</h3>
+          <p>Gibt es hier etwas zu sehen?</p>
+          <button id="javascript-DOM-1-button">Mal sehen ...</button>
+          <h3>Ausgabe</h3>
+          <p id="javascript-DOM-1-output"></p>
+          <script>
+          <!--
+            document.getElementById("javascript-DOM-1-button").onclick = function addElement1() {
+              var newH3 = document.createElement("h3");
+              var newContentH3 = document.createTextNode("Ausgabe");
+              newH3.appendChild(newContentH3); // füge den Textknoten zu Element hinzu
+
+              //füge neues Element + Inhalt ins DOM ein
+              var parentElement = document.getElementById("javascript-DOM-1-button").parentNode;
+              console.log(parentElement);
+              var afterElement = document.getElementById("javascript-DOM-1-button");
+              console.log(afterElement);
+              parentElement.insertBefore(newH3, afterElement);
+            }
+          //-->
+          </script>
+        </article>
+
       </section>
       <!-- END JavaScript -->
 
@@ -1541,7 +1633,6 @@
       function outputClearer(){
         $("[id$=-output]").html("");
       }
-
 
     //-->
     </script>
