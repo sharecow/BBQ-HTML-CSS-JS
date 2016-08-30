@@ -30,16 +30,7 @@
       </div>
     </noscript>
 
-    <header>
-      <nav>
-        <ul>
-          <li><a href="#all" id="all">Show all</a></li>
-          <li><a href="#HTML5" id="HTML5">HTML5</a></li>
-          <li><a href="#CSS3" id="CSS3">CSS3</a></li>
-          <li><a href="#JavaScript" id="JavaScript">JavaScript</a></li>
-        </ul>
-      </nav>
-    </header>
+    <header><!-- jQuery AJAX input header.html --></header>
 
     <main>
       <!-- BEGIN HTML5 ---------------------------------------------------------------------------------------------------------------------->
@@ -1508,27 +1499,77 @@
         </article>
 
         <article id="javascript-DOM">
-          <h2>DOM Manipulation</h2>
-          <h3>Elemente erstellen</h3>
-          <p>Gibt es hier etwas zu sehen?</p>
-          <button id="javascript-DOM-1-button">Mal sehen ...</button>
-          <h3>Ausgabe</h3>
-          <p id="javascript-DOM-1-output"></p>
-          <script>
-          <!--
-            document.getElementById("javascript-DOM-1-button").onclick = function addElement1() {
+          <h2>DOM Manipulation: </h2>
+          <h3>Elemente erstellen + Attribute setzen</h3>
+          <code>
+            <pre>
+              // new h3
               var newH3 = document.createElement("h3");
-              var newContentH3 = document.createTextNode("Ausgabe");
-              newH3.appendChild(newContentH3); // füge den Textknoten zu Element hinzu
+              var newContentH3 = document.createTextNode("Beispiel");
+              newH3.appendChild(newContentH3); // append TextNode to element
 
-              //füge neues Element + Inhalt ins DOM ein
-              var parentElement = document.getElementById("javascript-DOM-1-button").parentNode;
-              console.log(parentElement);
-              var afterElement = document.getElementById("javascript-DOM-1-button");
-              console.log(afterElement);
-              parentElement.insertBefore(newH3, afterElement);
+              // new p
+              var newP = document.createElement("p");
+              newP.setAttribute("id", "js-DOM-1-output"); // set id
+              var newContentP = document.createTextNode("Gehen Sie bitte weiter, hier gibt's nichts zu sehen!");
+              newP.appendChild(newContentP);
+
+              // insert new element + content into DOM
+              var parentElement = this.parentNode;
+              parentElement.insertBefore(newH3, this);
+              parentElement.insertBefore(newP, this);
+
+              // Button Status
+              this.setAttribute("disabled", true);
+              this.innerHTML = "Bitte nicht noch einmal klicken. Danke."
+            </pre>
+          </code>
+          <button id="js-DOM-1-button">Hm?</button>
+          <script>
+            document.getElementById("js-DOM-1-button").onclick = function addElement() {
+
+              // new h3
+              var newH3 = document.createElement("h3");
+              var newContentH3 = document.createTextNode("Beispiel");
+              newH3.appendChild(newContentH3); // append TextNode to element
+
+              // new p
+              var newP = document.createElement("p");
+              newP.setAttribute("id", "js-DOM-1-output"); // set id
+              var newContentP = document.createTextNode("Gehen Sie bitte weiter, hier gibt's nichts zu sehen!");
+              newP.appendChild(newContentP);
+
+              // insert new element + content into DOM
+              var parentElement = this.parentNode;
+              parentElement.insertBefore(newH3, this);
+              parentElement.insertBefore(newP, this);
+
+              // Button Status
+              this.setAttribute("disabled", true);
+              this.innerHTML = "Bitte nicht noch einmal klicken. Danke."
             }
-          //-->
+          </script>
+          <h3>Styling von HTML Elementen</h3>
+          <code id="js-DOM-2-code">
+            <pre>
+              elt.style.cssText = "color: blue"; // Multiple style properties
+
+              elt.setAttribute("style", "color: blue"); // Multiple style properties
+
+              elt.style.color = "blue";  // Directly
+
+              var st = elt.style;
+              st.color = "blue";  // Indirectly
+            </pre>
+          </code>
+          <button id="js-DOM-2-button">Farbe, bitte!</button>
+          <script>
+            document.getElementById("js-DOM-2-button").onclick = function ran_col() {
+              var color = '#'; // hexadecimal starting symbol
+              var letters = ['E6EBE0','5CA4A9','9BC1BC','F4F1BB','FFA987','36453B','82D173','87A878']; //Set your colors here
+              color += letters[Math.floor(Math.random() * letters.length)];
+              document.getElementById("js-DOM-2-code").style.backgroundColor = color; // Setting the random color on element.
+            }
           </script>
         </article>
 
@@ -1599,6 +1640,8 @@
 
       // JQUERY --------------------------------------------------------------->
       $( document ).ready(function() {
+
+        $("header").load("header.html");
 
         // NAV
         $("nav a#all").click(function() {

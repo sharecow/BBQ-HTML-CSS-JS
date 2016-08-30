@@ -1,0 +1,1337 @@
+<h1>JavaScript</h1>
+
+<article class="javascript-data-types">
+  <h2>Datentypen</h2>
+  <script>
+    <!--
+    var length = 16;                               // Number
+    var lastName = "Johnson";                      // String
+    var cars = ["Saab", "Volvo", "BMW"];           // Array
+    var x = {firstName:"John", lastName:"Doe"};    // Object
+    //-->
+  </script>
+  <code>
+    <pre>
+      var length = 16;                               // Number
+      var lastName = "Johnson";                      // String
+      var cars = ["Saab", "Volvo", "BMW"];           // Array
+      var x = {firstName:"John", lastName:"Doe"};    // Object
+    </pre>
+  </code>
+  <p>Was macht JavaScript bei ...</p>
+  <code><pre>var x = 16 + "Volvo";</pre></code>
+  <p>JavaScript behandelt 16 <mark>als String</mark>:</p>
+  <code><pre>var x = "16" + "Volvo";</pre></code>
+  <p>Aber ...</p>
+  <code><pre>var x = 16 + 4 + "Volvo";</pre></code>
+  <p>Ergebnis: 20Volvo</p>
+</article>
+
+<article class="javascript-var-glob">
+  <h2>Variablen: Global</h2>
+  <code>
+    <pre>
+      var glvar = " Ich bin global. ";
+      function spit(){
+        document.write(glvar);
+      }
+      spit();
+      document.write(glvar);
+    </pre>
+  </code>
+  <h3>Ausgabe</h3>
+  <script>
+    <!--
+    var glvar = "<p>Ich bin global.</p>";
+    function spit(){
+      document.write(glvar);
+    }
+    spit();
+    document.write(glvar);
+    //-->
+  </script>
+</article>
+
+<article class="javascript-var-loc">
+  <h2>Variablen: Local</h2>
+  <code>
+    <pre>
+      function spit(){
+        var locvar = " Ich bin local. ";
+        document.write(locvar);
+      }
+      spit();
+      document.write(locvar);
+    </pre>
+  </code>
+  <h3>Ausgabe</h3>
+  <script>
+    <!--
+    function spit(){
+      var locvar = " Ich bin local. ";
+      document.write(locvar);
+    }
+    spit();
+    document.write(locvar);
+    //-->
+  </script>
+</article>
+
+<article class="javascript-vgl-op">
+  <h2>Comparison Operators</h2>
+  <p>Als Ergebnis liefern Vergleichsoperatoren immer einen sogenannten
+     booleschen Wert (Wahrheitswert) vom Typ boolean, d.h. entweder
+     true (wahr) oder false (falsch).</p>
+  <ul>
+    <li>== istgleich</li>
+    <li>!= ungleich</li>
+    <li>>  größer</li>
+    <li>>= größergleich</li>
+    <li><  kleiner</li>
+    <li><= kleinergleich</li>
+  </ul>
+</article>
+
+<article class="javascript-ar-op">
+  <h2>Rechenoperationen mit Zuweisung</h2>
+  <h3>Beispiel</h3>
+  <code>
+    <pre>
+      zahl +=  3;
+      zahl -=  2;
+      zahl *= 18;
+      zahl /=  3;
+      zahl %=  5;
+    </pre>
+  </code>
+  <p>Setze den Wert der Variable "zahl".</p>
+  <input id="js-ar-op-input" type="number" value="1" min="1" name="number">
+  <button id="js-ar-op-button">Senden</button>
+  <script>
+  <!--
+  document.getElementById("js-ar-op-button").onclick = function() {
+    var zahl = parseInt(document.getElementById("js-ar-op-input").value);
+
+    zahl +=  3;
+    zahl -=  2;
+    zahl *= 18;
+    zahl /=  3;
+    zahl %=  5;
+
+    document.getElementById("js-ar-op-output").innerHTML += "Das Ergebnis lautet: " + zahl + "<br>";
+  };
+  //-->
+  </script>
+  <h3>Ausgabe</h3>
+  <p id="js-ar-op-output"></p>
+</article>
+
+<article class="javascript-log-op">
+  <h2>Logical Operators</h2>
+  <p>... vergleichen zwei bedingte Anweisungen, um zu prüfen, ob eine
+    oder beide Bedingungen true oder false liefern</p>
+  <ul>
+    <li>NOT !</li>
+    <li>OR ||</li>
+    <li>AND &&</li>
+  </ul>
+</article>
+
+<article class="javascript-fu">
+  <h2>Funktion durch Funktion starten</h2>
+  <code>
+    <pre>
+      function doFirst(){
+        document.getElementById('js-fu-output').innerHTML += 'Ich bin die erste Funktion!';
+      }
+      function doSecond(){
+        document.getElementById('js-fu-output').innerHTML += 'Ich bin die zweite Funktion!';
+      }
+      document.getElementById("js-fu-button").onclick = function() {
+        doFirst();
+        doSecond();
+      }
+    </pre>
+  </code>
+  <button id="js-fu-button">Senden</button>
+  <script>
+  <!--
+    function doFirst(){
+      document.getElementById("js-fu-output").innerHTML += "Ich bin die erste Funktion!<br>";
+    }
+    function doSecond(){
+      document.getElementById("js-fu-output").innerHTML += "Ich bin die zweite Funktion!<br>";
+    }
+    document.getElementById("js-fu-button").onclick = function() {
+      doFirst();
+      doSecond();
+    }
+  //-->
+  </script>
+  <h3>Ausgabe</h3>
+  <p id="js-fu-output"></p>
+</article>
+
+<article class="javascript-if">
+  <h2>Conditional Statements: <i>if, else if, else</i></h2>
+  <h3>Syntax</h3>
+  <code>
+    <pre>
+      if (condition1) {
+          block of code to be executed if condition1 is true
+      } else if (condition2) {
+          block of code to be executed if the condition1 is false and condition2 is true
+      } else {
+          block of code to be executed if the condition1 is false and condition2 is false
+      }
+    </pre>
+  </code>
+  <h3>Beispiel</h3>
+  <code>
+    <pre>
+      document.getElementById("js-if-button").onclick = function() {
+        var birnen = parseInt(document.getElementById("js-if-birnen").value);
+        var aepfel = parseInt(document.getElementById("js-if-aepfel").value);
+        var differenz = birnen - aepfel;
+
+        if (differenz == 0){
+          document.getElementById("js-if-output").innerHTML = "Prima, so
+          wird's was mit dem Kuchen!";
+        } else if (differenz < 0) {
+          // Convert negative number to positive
+          differenz *= -1;
+          document.getElementById("js-if-output").innerHTML = "Du brauchst noch "
+          + differenz + " Birnen.";
+        } else {
+          document.getElementById("js-if-output").innerHTML = "Du brauchst noch "
+          + differenz + " Äpfel.";
+        }
+      }
+    </pre>
+  </code>
+  <p>Differenz zwischen 2 Variablen inkl positivieren.</p>
+  <form>
+    <p>
+      <label>Birnen</label>
+      <input id="js-if-birnen" type="number" min="1" value="12" name="Birnen" />
+    </p>
+    <p>
+      <label>Äpfel</label>
+      <input id="js-if-aepfel" type="number" min="1" value="3" name="Aepfel" />
+    </p>
+  </form>
+  <button id="js-if-button">Senden</button>
+
+  <h3>Ausgabe</h3>
+  <p id="js-if-output"></p>
+  <script>
+  <!--
+    document.getElementById("js-if-button").onclick = function() {
+      var birnen = parseInt(document.getElementById("js-if-birnen").value);
+      var aepfel = parseInt(document.getElementById("js-if-aepfel").value);
+      var differenz = birnen - aepfel;
+
+      if (differenz == 0){
+        document.getElementById("js-if-output").innerHTML = "Prima, so wird's was mit dem Kuchen! <br>";
+      } else if (differenz < 0) {
+        // Convert negative number to positive
+        differenz *= -1;
+        document.getElementById("js-if-output").innerHTML = "Du brauchst noch " + differenz + " Birnen. <br>";
+      } else {
+        document.getElementById("js-if-output").innerHTML = "Du brauchst noch " + differenz + " Äpfel. <br>";
+      }
+    }
+
+  //-->
+  </script>
+</article>
+
+<article class="javascript-ar-op-mo">
+  <h2><i>if</i> Statement + Modulus (%)</h2>
+  <p>Schaltjahr?</p>
+  <code>
+    <pre>
+      document.getElementById("js-ar-op-mo").onclick = function (){
+        var jahr = parseInt(document.getElementById("js-ar-op-mo-input").value);
+          var Schaltjahr = false;
+          if (((jahr % 4 == 0) && (jahr % 100 != 0)) ||
+            (jahr % 400 == 0)) {
+            Schaltjahr = true;
+          }
+          if(Schaltjahr) {
+            Ergebnis = "Ja, " + jahr + " ist ein Schaltjahr.";
+            document.getElementById("js-ar-op-mo-output").className = "false";
+          }
+        else {
+          Ergebnis = "Nein, " + jahr + " ist kein Schaltjahr.";
+          document.getElementById("js-ar-op-mo-output").className = "false";
+        }
+        document.getElementById("js-ar-op-mo-output").innerHTML = Ergebnis;
+      }
+    </pre>
+  </code>
+  <input type="number" id="js-ar-op-mo-input" name="js-ar-op-mo-input" value="2016" min="1900" max="2050"/>
+  <button id="js-ar-op-mo">Senden</button>
+  <h3>Ausgabe</h3>
+  <p id="js-ar-op-mo-output"></p>
+  <script>
+  <!--
+    document.getElementById("js-ar-op-mo").onclick = function (){
+      var jahr = parseInt(document.getElementById("js-ar-op-mo-input").value);
+      var Schaltjahr = false;
+      if (((jahr % 4 == 0) && (jahr % 100 != 0)) ||
+        (jahr % 400 == 0)) {
+        Schaltjahr = true;
+      }
+      if(Schaltjahr) {
+        Ergebnis = "Ja, " + jahr + " ist ein Schaltjahr.";
+        document.getElementById("js-ar-op-mo-output").className = "true";
+      }
+      else {
+        Ergebnis = "Nein, " + jahr + " ist kein Schaltjahr.";
+        document.getElementById("js-ar-op-mo-output").className = "false";
+      }
+      document.getElementById("js-ar-op-mo-output").innerHTML = Ergebnis;
+    }
+  //-->
+  </script>
+</article>
+
+<article class="javascript-switch">
+  <h2><i>switch</i> Statement</h2>
+  <p>... verschiedene Aktionen in unterschiedlichen Konditionen.</p>
+  <h3>Syntax</h3>
+  <code>
+    <pre>
+      switch(expression) {
+        case n:
+          code block
+          break;
+        case n:
+          code block
+          break;
+        default:
+            default code block
+      }
+    </pre>
+  </code>
+  <h3>Beispiel</h3>
+  <code>
+    <pre>
+      document.getElementById("js-switch-button").onclick = function(){
+        var tier = document.getElementById("js-switch-select");
+        var selectedTier = tier.options[tier.selectedIndex].value;
+        var ausgabe = "Welches Tier suchen wir?";
+
+        // output color
+        document.getElementById("js-switch-output").className = "false";
+
+        switch (selectedTier) {
+          case "Affe":
+            ausgabe = "Zu klein und sprunghaft.";
+            break;
+          case "Elefant":
+            ausgabe = "Zu behebig und zu kurzer Hals.";
+            break;
+          case "Fliege":
+            ausgabe = "Viiiiiel zu klein.";
+            break;
+          case "Giraffe":
+            ausgabe = "Gratuliere! Richtig geraten!";
+            document.getElementById("js-switch-output").className = "true";
+            break;
+          case "Leopard":
+            ausgabe = "Schöne Flecken, aber zu schnell.";
+            break;
+          default:
+            ausgabe = "Welches Tier suchen wir?";
+        }
+
+        document.getElementById("js-switch-output").innerHTML = ausgabe;
+      }
+    </pre>
+  </code>
+  <p>Wir suchen das Tier mit dem langen Hals.</p>
+  <select id="js-switch-select" name="js-switch-select">
+    <option value="Affe">Affe</option>
+    <option value="Elefant">Elefant</option>
+    <option value="Fliege">Fliege</option>
+    <option value="Giraffe">Giraffe</option>
+    <option value="Leopard">Leopard</option>
+  </select>
+  <button id="js-switch-button">Senden</button>
+  <h3>Ausgabe</h3>
+  <p id="js-switch-output"></p>
+  <script>
+  <!--
+    document.getElementById("js-switch-button").onclick = function (){
+      var tier = document.getElementById("js-switch-select");
+      var selectedTier = tier.options[tier.selectedIndex].value;
+      var ausgabe = "Welches Tier suchen wir?";
+
+      // output color
+      document.getElementById("js-switch-output").className = "false";
+
+      switch (selectedTier) {
+        case "Affe":
+          ausgabe = "Zu klein und sprunghaft.";
+          break;
+        case "Elefant":
+          ausgabe = "Zu behebig und zu kurzer Hals.";
+          break;
+        case "Fliege":
+          ausgabe = "Viiiiiel zu klein.";
+          break;
+        case "Giraffe":
+          ausgabe = "Gratuliere! Richtig geraten!";
+          document.getElementById("js-switch-output").className = "true";
+          break;
+        case "Leopard":
+          ausgabe = "Schöne Flecken, aber zu schnell.";
+          break;
+        default:
+          ausgabe = "Welches Tier suchen wir?";
+      }
+
+      document.getElementById("js-switch-output").innerHTML = ausgabe;
+    }
+  //-->
+  </script>
+</article>
+
+<article class="javascript-for">
+  <h2><i>for</i> Loop</h2>
+  <h3>Syntax</h3>
+  <code>
+    <pre>
+      for (statement 1; statement 2; statement 3) {
+          code block to be executed
+      }
+    </pre>
+  </code>
+  <h3>Beispiel</h3>
+  <p>Eine Schleife, die den Wert von <i>i</i> bei 0 startend (Statement 1)
+    in 1er Schritten (Statement 3) bis maximal 2 (Statement 2) erhöht.</p>
+  <code>
+    <pre>
+      for (var i = 0; i < 3; i++) {
+        document.write("Loop hier")
+      }
+    </pre>
+  </code>
+  <h3>Ausgabe</h3>
+  <script>
+  <!--
+    for (var i = 0; i < 3; i++) {
+      document.write("Loop hier <br>")
+    }
+  //-->
+  </script>
+</article>
+
+<article class="javascript-while">
+  <h2><i>while</i> Loop</h2>
+  <h3>Syntax</h3>
+  <code>
+    <pre>
+      while (condition) {
+          code block to be executed
+      }
+    </pre>
+  </code>
+  <h3>Beispiel</h3>
+  <code>
+    <pre>
+      var i = 1;
+
+      while (i < 5) {
+        document.write(i + ". Schleife");
+        i++;
+      }
+    </pre>
+  </code>
+  <h3>Ausgabe</h3>
+  <script>
+  <!--
+    var i = 1;
+
+    while (i < 5) {
+      document.write(i + ". Schleife<br>");
+      i++;
+    }
+    //-->
+  </script>
+</article>
+
+<article class="javascript-do-while">
+  <h2><i>do while</i> Loop</h2>
+  <p>Startet 1 Mal und prüft die Condition danach. Loop aktiv solange Condition true ist.</p>
+  <h3>Syntax</h3>
+  <code>
+    <pre>
+      do {
+        code block to be executed
+      } while (condition);
+    </pre>
+  </code>
+  <h3>Beispiel</h3>
+  <p>Obwohl <mark>i > 5</mark> false ist, wird die Anweisung 1 Mal ausgeführt.</p>
+  <code>
+    <pre>
+      var i = 1;
+
+      do {
+        document.write(i + ". Schleife");
+        i++;
+      } while (i > 5);
+    </pre>
+  </code>
+  <h3>Ausgabe</h3>
+  <script>
+  <!--
+    var i = 1;
+
+    do {
+      document.write(i + ". Schleife<br>");
+      i++;
+    } while (i > 5);
+  //-->
+  </script>
+</article>
+
+<article class="javascript-event-handlers">
+  <h2>Event Handlers</h2>
+  <p>... sind <mark>HTML-Attribute</mark>, die eine Verknüpfung zu einer Script-Sprache (meist JavaScript) herstellen. </p>
+  <h3>Beispiel</h3>
+  <p>Hier wird per Klick eine Funktion namens <i>showDetails</i> mit dem Parameter
+    <i>animal</i> gestartet. Die Variable <i>animalType</i> wird erzeugt.
+    Mit <i>getAttribute</i> wird das HTML-Attribut <i>data-animal-type</i>
+    herausgesucht und der Wert der Variable gesetzt.
+    Im Alert-Fenster wird mit <i>animal.innerHTML</i> (Bsp: "Specht") und
+    mit <i>animalType</i> (Bsp: "Vogel") der Satz gebildet.</p>
+  <code>
+    <pre>
+      function showDetails(animal) {
+        var animalType = animal.getAttribute("data-animal-type");
+        document.getElementById("js-data-animal-output").innerHTML = "Der " +
+        animal.innerHTML + " ist ein " + animalType + ".";
+      }
+
+      onclick="showDetails(this)" id="Specht" data-animal-type="Vogel"
+    </pre>
+  </code>
+  <p>Klicke auf eine Spezies, um dessen Kategorie zu sehen:</p>
+  <button onclick="showDetails(this)" id="Specht" data-animal-type="Vogel" type="button">Specht</button>
+  <button onclick="showDetails(this)" id="Lachs" data-animal-type="Fisch" type="button">Lachs</button>
+  <button onclick="showDetails(this)" id="Elefant" data-animal-type="Säugetier" type="button">Elefant</button>
+  <h3>Ausgabe</h3>
+  <p id="js-data-animal-output"></p>
+  <script>
+  <!--
+    function showDetails(animal) {
+      var animalType = animal.getAttribute("data-animal-type");
+      document.getElementById("js-data-animal-output").innerHTML = "Der " +
+      animal.innerHTML + " ist ein " + animalType + ".";
+    }
+  //-->
+  </script>
+</article>
+
+<article>
+
+</article>
+
+<article class="javascript-objects">
+  <h2>Objects</h2>
+
+  <h3>Objects are Variables Containing Variables</h3>
+  <p>Objects are variables too. But objects can contain many values.
+    This code assigns <strong>many values</strong> (John, Dow, 50 ...) to a <strong>variable</strong> named person:</p>
+  <code>
+    <pre>
+      // Using an Object Literal
+      var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+      // OR
+      var person = {
+          firstName:"John",
+          lastName:"Doe",
+          age:50,
+          eyeColor:"blue"
+      };
+    </pre>
+  </code>
+  <p>The values are written as <strong>name:value</strong> pairs (name and
+    value separated by a colon).</p>
+  <p><mark>JavaScript objects are containers for named values.</mark></p>
+
+  <h3>Object Properties</h3>
+  <p>The name:values pairs (in JavaScript objects) are called <strong>properties</strong>.</p>
+  <p>You can access object properties in two ways:</p>
+  <code>
+    <pre>
+      // objectName.propertyName
+      person.lastName;
+
+      // OR
+
+      // objectName["propertyName"]
+      person.["lastName"];
+    </pre>
+  </code>
+
+  <h3>Object Methods</h3>
+  <p>Methods are <strong>actions</strong> that can be performed on objects.
+    Methods are stored in properties as <strong>function definitions</strong>.</p>
+  <code>
+    <pre>
+      // objectName.methodName()
+      name = person.fullName();
+
+      var person = {
+          firstName: "John",
+          lastName : "Doe",
+          id       : 5566,
+          fullName : function() {
+             return this.firstName + " " + this.lastName;
+          }
+      };
+      document.getElementById("demo").innerHTML = person.fullName();
+
+      // OR If you access the fullName method, without (),
+      // it will return the function definition:
+      name = person.fullName;
+    </pre>
+  </code>
+  <p><mark>JavaScript objects are containers for named values, called properties and methods.</mark></p>
+
+  <h3>Using an Object Constructor</h3>
+  <p>The examples above are limited in many situations. They only create a single object.</p>
+  <p>Sometimes we like to have an "object type" that can be used to create <strong>many objects of one type</strong>.</p>
+  <p>The standard way to create an "object type" is to use an object <strong>constructor function</strong>:</p>
+  <code>
+    <pre>
+      // The function (person) is an object constructor.
+      function person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+      }
+
+      // Once you have an object constructor, you can create new objects of the same type:
+      var myFather = new person("John", "Doe", 50, "blue");
+      var myMother = new person("Sally", "Rally", 48, "green");
+    </pre>
+  </code>
+  <p><mark>Note that <strong>this</strong> is not a variable. It is a keyword. You cannot change the value of <strong>this</strong>.</mark></p>
+  <h3>Built-In JavaScript Constructors</h3>
+  <code>
+    <pre>
+      var x1 = {};            // new object
+      var x2 = "";            // new primitive string
+      var x3 = 0;             // new primitive number
+      var x4 = false;         // new primitive boolean
+      var x5 = [];            // new array object
+      var x6 = /()/           // new regexp object
+      var x7 = function(){};  // new function object
+    </pre>
+  </code>
+
+  <h3>Beispiel</h3>
+  <p>Eine Familie bestehend aus Instanzen eines Objekts, das mittels einem Constructor erstellt wurde.</p>
+  <code>
+    <pre>
+      // Contructor ----------------------------------------------------->
+
+      function Person(
+        famStatus,
+        firstName,
+        lastName,
+        gender,
+        birthDate,
+        birthLocCity,
+        birthLocCountry,
+        eyeColor){
+        this.Familienstatus = famStatus;
+        this.Vorname = firstName;
+        this.Nachname = lastName;
+        this.Geschlecht = gender;
+        this.Geburtsdatum = birthDate;
+        this.Geburtsort = birthLocCity;
+        this.Land = birthLocCountry;
+        this.Augenfarbe = eyeColor;
+      }
+
+      var Vater = new Person(
+        "Vater",
+        "Julius",
+        "Leber",
+        "m",
+        "16.11.1966",
+        "Biesheim",
+        "Frankreich",
+        "braun");
+      var Mutter = new Person(
+        "Mutter",
+        "Sophie",
+        "Scholl",
+        "w",
+        "09.05.1972",
+        "Forchtenberg",
+        "Deutschland",
+        "blau");
+      var Kind1 = new Person(
+        "Kind",
+        "Anne",
+        "Leber-Scholl",
+        "w",
+        "12.06.1992",
+        "Frankfurt am Main",
+        "Deutschland",
+        "braun");
+      var Kind2 = new Person(
+        "Kind",
+        "Konrad",
+        "Leber-Scholl",
+        "m",
+        "05.01.2000",
+        "Rhöndorf",
+        "Deutschland",
+        "blau");
+
+      familie = [Vater, Mutter, Kind1, Kind2];
+
+
+      // onclick -------------------------------------------------------->
+
+      document.getElementById("js-objects-select").onchange = function (){
+
+        // Clears Output Field
+        outputClearer();
+
+        // Get "Select" Values
+        var Info = document.getElementById("js-objects-select");
+        var selectedInfo = Info.options[Info.selectedIndex].value;
+
+        // Was wissen wir über Anne Leber-Scholl?
+        function Kind1Info(){
+          document.getElementById("js-objects-output").innerHTML = Kind1.Vorname +
+          " " + Kind1.Nachname + " (geb. am " + Kind1.Geburtsdatum + " in " + Kind1.Geburtsort +
+          ", " + Kind1.Land + ") ist das erste Kind von " + Mutter.Vorname +
+          " " + Mutter.Nachname + " und " + Vater.Vorname + " " + Vater.Nachname + ".";
+        }
+
+        // Wer hat blaue Augen?
+        function AugenInfo(){
+          var blaueAugen = familie.filter(function (Person) {
+            return Person.Augenfarbe == "blau";
+          });
+          if (blaueAugen.length != 0){
+            for(var k = 0; k < blaueAugen.length; k++){
+              document.getElementById("js-objects-output").innerHTML +=
+              blaueAugen[k].Vorname + " " + blaueAugen[k].Nachname +
+              " hat blaue Augen.";
+            }
+          } else {
+              document.getElementById("js-objects-output").innerHTML =
+              "Keiner hat blaue Augen.";
+          }
+        }
+
+        // Wie groß ist der Altersunterschied der Kinder?
+        function AlterDiffKinder(){
+          var Kinder = familie.filter(function (Person) {
+            return Person.Familienstatus == "Kind";
+          });
+          Geburtsjahre = "";
+          GeburtsjahreArray = [];
+          if (Kinder.length != 0){
+            for(var k = 0; k < Kinder.length; k++){
+              Geburtsjahre = Kinder[k].Geburtsdatum.substring(6);
+              GeburtsjahreArray.push(parseInt(Geburtsjahre));
+            }
+          } else {
+            document.getElementById("js-objects-output").innerHTML +=
+            "Keine Kinder gefunden.";
+          }
+          Ergebnis = GeburtsjahreArray[0] - GeburtsjahreArray[1];
+          // Convert negative number to positive
+          Ergebnis *= -1;
+          document.getElementById("js-objects-output").innerHTML +=
+          "Der Altersunterschied zwischen den Kindern beträgt: " + Ergebnis +
+          " Jahre.";
+        }
+
+        // Sind alle Familienmitglieder in D geboren?
+        function inDgeboren(){
+          var nichtDeutsch = familie.filter(function (Person) {
+          return Person.Land != "Deutschland";
+          });
+          if (nichtDeutsch.length != 0){
+            for(var k = 0; k < nichtDeutsch.length; k++){
+              document.getElementById("js-objects-output").innerHTML +=
+              nichtDeutsch[k].Vorname + " " + nichtDeutsch[k].Nachname +
+              " ist nicht in Deutschland geboren.";
+            }
+          } else {
+              document.getElementById("js-objects-output").innerHTML =
+              "Alle sind in Deutschland geboren.";
+          }
+        }
+
+        // STASI Modus!
+        function GetItAll(){
+          for (var i = 0; i < familie.length; i++){
+            document.getElementById("js-objects-output").innerHTML +=
+            + familie[i].Vorname + " ------------>";
+            Object.getOwnPropertyNames(familie[i]).forEach(function(k) {
+              document.getElementById("js-objects-output").innerHTML +=
+              k + ': ' + familie[i][k] + "";
+            });
+          }
+        }
+
+        // Switch ------------------------------------------------------->
+        switch (selectedInfo) {
+          case "Kind1Info":
+            Kind1Info();
+            break;
+          case "AugenInfo":
+            AugenInfo();
+            break;
+          case "inDgeboren":
+            inDgeboren();
+            break;
+          case "AlterDiffKinder":
+            AlterDiffKinder();
+            break;
+          case "GetItAll":
+            GetItAll();
+            break;
+          default:
+            document.getElementById("js-objects-output").innerHTML =
+            "Wat?! Hamwa nüsch!";
+        }
+      }
+    </pre>
+  </code>
+  <select id="js-objects-select" name="js-objects-select">
+    <option value="">Wähle eine Option ...</option>
+    <option value="Kind1Info">Was wissen wir über Anne Leber-Scholl?</option>
+    <option value="AugenInfo">Wer hat blaue Augen?</option>
+    <option value="AlterDiffKinder">Wie groß ist der Altersunterschied der Kinder?</option>
+    <option value="inDgeboren">Sind alle Familienmitglieder in D geboren?</option>
+    <option value="GetItAll">STASI Modus!</option>
+  </select>
+  <h3>Ausgabe</h3>
+  <p id="js-objects-output"></p>
+  <script>
+  <!--
+
+    // Contructor ----------------------------------------------------->
+
+    function Person(
+      famStatus,
+      firstName,
+      lastName,
+      gender,
+      birthDate,
+      birthLocCity,
+      birthLocCountry,
+      eyeColor){
+      this.Familienstatus = famStatus;
+      this.Vorname = firstName;
+      this.Nachname = lastName;
+      this.Geschlecht = gender;
+      this.Geburtsdatum = birthDate;
+      this.Geburtsort = birthLocCity;
+      this.Land = birthLocCountry;
+      this.Augenfarbe = eyeColor;
+    }
+
+    var Vater = new Person(
+      "Vater",
+      "Julius",
+      "Leber",
+      "m",
+      "16.11.1966",
+      "Biesheim",
+      "Frankreich",
+      "braun");
+    var Mutter = new Person(
+      "Mutter",
+      "Sophie",
+      "Scholl",
+      "w",
+      "09.05.1972",
+      "Forchtenberg",
+      "Deutschland",
+      "blau");
+    var Kind1 = new Person(
+      "Kind",
+      "Anne",
+      "Leber-Scholl",
+      "w",
+      "12.06.1992",
+      "Frankfurt am Main",
+      "Deutschland",
+      "braun");
+    var Kind2 = new Person(
+      "Kind",
+      "Konrad",
+      "Leber-Scholl",
+      "m",
+      "05.01.2000",
+      "Rhöndorf",
+      "Deutschland",
+      "blau");
+
+    familie = [Vater, Mutter, Kind1, Kind2];
+
+
+    // onclick -------------------------------------------------------->
+
+    document.getElementById("js-objects-select").onchange = function (){
+
+      // Clears Output Field
+      outputClearer();
+
+      // Get "Select" Values
+      var Info = document.getElementById("js-objects-select");
+      var selectedInfo = Info.options[Info.selectedIndex].value;
+
+      // Was wissen wir über Anne Leber-Scholl?
+      function Kind1Info(){
+        document.getElementById("js-objects-output").innerHTML = Kind1.Vorname +
+        " " + Kind1.Nachname + " (geb. am " + Kind1.Geburtsdatum + " in " + Kind1.Geburtsort +
+        ", " + Kind1.Land + ") ist das erste Kind von " + Mutter.Vorname +
+        " " + Mutter.Nachname + " und " + Vater.Vorname + " " + Vater.Nachname + ".";
+      }
+
+      // Wer hat blaue Augen?
+      function AugenInfo(){
+        var blaueAugen = familie.filter(function (Person) {
+          return Person.Augenfarbe == "blau";
+        });
+        if (blaueAugen.length != 0){
+          for(var k = 0; k < blaueAugen.length; k++){
+            document.getElementById("js-objects-output").innerHTML +=
+            blaueAugen[k].Vorname + " " + blaueAugen[k].Nachname +
+            " hat blaue Augen.<br>";
+          }
+        } else {
+            document.getElementById("js-objects-output").innerHTML =
+            "Keiner hat blaue Augen.";
+        }
+      }
+
+      // Wie groß ist der Altersunterschied der Kinder?
+      function AlterDiffKinder(){
+        var Kinder = familie.filter(function (Person) {
+          return Person.Familienstatus == "Kind";
+        });
+        Geburtsjahre = "";
+        GeburtsjahreArray = [];
+        if (Kinder.length != 0){
+          for(var k = 0; k < Kinder.length; k++){
+            Geburtsjahre = Kinder[k].Geburtsdatum.substring(6);
+            GeburtsjahreArray.push(parseInt(Geburtsjahre));
+          }
+        } else {
+          document.getElementById("js-objects-output").innerHTML +=
+          "Keine Kinder gefunden.";
+        }
+        Ergebnis = GeburtsjahreArray[0] - GeburtsjahreArray[1];
+        // Convert negative number to positive
+        Ergebnis *= -1;
+        document.getElementById("js-objects-output").innerHTML +=
+        "Der Altersunterschied zwischen den Kindern beträgt: " + Ergebnis +
+        " Jahre.";
+      }
+
+      // Sind alle Familienmitglieder in D geboren?
+      function inDgeboren(){
+        var nichtDeutsch = familie.filter(function (Person) {
+        return Person.Land != "Deutschland";
+        });
+        if (nichtDeutsch.length != 0){
+          for(var k = 0; k < nichtDeutsch.length; k++){
+            document.getElementById("js-objects-output").innerHTML +=
+            nichtDeutsch[k].Vorname + " " + nichtDeutsch[k].Nachname +
+            " ist nicht in Deutschland geboren.<br>";
+          }
+        } else {
+            document.getElementById("js-objects-output").innerHTML =
+            "Alle sind in Deutschland geboren.";
+        }
+      }
+
+      // STASI Modus!
+      function GetItAll(){
+        for (var i = 0; i < familie.length; i++){
+          document.getElementById("js-objects-output").innerHTML +=
+          "<br><br>" + familie[i].Vorname + " ------------><br><br>";
+          Object.getOwnPropertyNames(familie[i]).forEach(function(k) {
+            document.getElementById("js-objects-output").innerHTML +=
+            k + ': ' + familie[i][k] + "<br>";
+          });
+        }
+      }
+
+      // Switch ------------------------------------------------------->
+      switch (selectedInfo) {
+        case "Kind1Info":
+          Kind1Info();
+          break;
+        case "AugenInfo":
+          AugenInfo();
+          break;
+        case "inDgeboren":
+          inDgeboren();
+          break;
+        case "AlterDiffKinder":
+          AlterDiffKinder();
+          break;
+        case "GetItAll":
+          GetItAll();
+          break;
+        default:
+          document.getElementById("js-objects-output").innerHTML =
+          "Wat?! Hamwa nüsch!";
+      }
+    }
+  //-->
+  </script>
+</article>
+
+<article id="javascript-regex">
+  <h2>Regular Expressions (RegEx)</h2>
+  <code>
+    <pre>
+      document.getElementById("RegEx-button").onclick = function validate(){
+
+        var input = document.getElementById("RegEx-input").value;
+        var reg = /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/
+
+        if (reg.test(input) == false){
+          document.getElementById("RegEx-output").innerHTML =
+          ((input == 0) ? "Das" : input) +
+          " ist kein valides Datum (valide: TT-MM-JJJJ oder TT.MM.JJJJ).";
+        } else {
+          document.getElementById("RegEx-output").innerHTML =
+          input + " wird akzeptiert. :)";
+        }
+
+      };
+    </pre>
+  </code>
+  <input id="RegEx-input" name="birthdate">
+  <button id="RegEx-button">Senden</button>
+  <h3>Ausgabe</h3>
+  <p id="RegEx-output"></p>
+  <script>
+  <!--
+    document.getElementById("RegEx-button").onclick = function RegEx(){
+
+      var input = document.getElementById("RegEx-input").value;
+      var reg = /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/
+
+      if (reg.test(input) == false){
+        document.getElementById("RegEx-output").className = "false";
+        document.getElementById("RegEx-output").innerHTML =
+        ((input == 0) ? "Das" : input) +
+        " ist kein valides Datum (valide: TT-MM-JJJJ oder TT.MM.JJJJ).";
+      } else {
+        document.getElementById("RegEx-output").className = "true";
+        document.getElementById("RegEx-output").innerHTML =
+        input + " wird akzeptiert. :)";
+      }
+
+    };
+  //-->
+  </script>
+</article>
+
+<article id="javascript-dad">
+  <h2>Drag and Drop</h2>
+  <h3>Definition</h3>
+  <p>... ist Bestandteil des HTML5 Standards. Jedes Element kann "draggeable" sein.</p>
+  <p><mark>Auch wenn die Browser-Unterstützung gut aussieht, ist HTML5-Drag & Drop auf mobilen Geräten mit iOS und Android (noch) nicht möglich.</mark></p>
+  <code>
+    <pre>
+      // Element "draggable" machen:
+      &lt;img ... draggable="true"&gt;
+
+      // Definieren, was "gedraggt" wird über das Attribute „ondragstart“
+      &lt;img… draggable="true" ondragstart="drag(event)"&gt;
+      /* ... oder dynamisch - nach dem Laden des Dokuments werden mittels querySelectorAll alle Elemente mit dem Attribut draggable="true" ermittelt. In einer Schleife werden dann durch addEventListener die Event-Handler dynamisch angebunden.*/
+      window.addEventListener("load",function () {
+        var elms = document.querySelectorAll("[draggable=true]")
+        for (var i = 0; i < elms.length; i++) {
+          var draggable = elms[i];
+          draggable.addEventListener("dragstart", drag);
+        };
+      });
+
+      /* Der Vorgang des Ziehens wäre nicht möglich, ohne dass die Ereignisse in einem dataTransferObject gespeichert werden können. Deshalb haben alle drag-Events eine dataTransfer-Eigenschaft, die mit Methoden gesetzt und ausgelesen werden kann. */
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+      // Definieren, wohin „gedroppt“ wird über das Attribute „ondragover“ und einer function
+      // ev.preventDefault() verhindert das Standard-Verhalten des Elementes
+      &lt;div … ondragover="allowDroprop(event)"&gt;
+      function allowDroprop(ev) {
+        ev.preventDefault();
+      }
+
+      // "droppen" über das Attribut "ondrop" und einer function
+      // ev.preventDefault() verhindert das Standard-Verhalten des Elementes
+      // Standard: als Link öffnen beim "droppen"
+      &lt;div … ondragover="allowDroprop(event)" ondrop="drop(event)"&gt;
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+      }
+    </pre>
+  </code>
+  <h3>Beispiel</h3>
+  <code>
+    <pre>
+      &lt;div id=dad-div&gt;
+        &lt;div id="dropzone1" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+          &lt;p draggable="true" ondragstart="ziehen(event)" id="drag1"&gt;&lt;/p&gt;&lt;/div&gt;
+        &lt;div id="dropzone2" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+          &lt;p draggable="true" ondragstart="ziehen(event)" id="drag2"&gt;&lt;/p&gt;&lt;/div&gt;
+        &lt;div id="dropzone3" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+          &lt;p draggable="true" ondragstart="ziehen(event)" id="drag3"&gt;&lt;/p&gt;&lt;/div&gt;
+        &lt;div id="dropzone4" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+          &lt;p draggable="true" ondragstart="ziehen(event)" id="drag4"&gt;&lt;/p&gt;&lt;/div&gt;
+        &lt;div id="dropzone5" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+          &lt;p draggable="true" ondragstart="ziehen(event)" id="drag5"&gt;&lt;/p&gt;&lt;/div&gt;
+        &lt;div id="dropzone6" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+          &lt;p draggable="true" ondragstart="ziehen(event)" id="drag6"&gt;&lt;/p&gt;&lt;/div&gt;
+        &lt;div id="dropzone7" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+          &lt;p draggable="true" ondragstart="ziehen(event)" id="drag7"&gt;&lt;/p&gt;&lt;/div&gt;
+        &lt;div id="dropzone8" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;
+          &lt;p draggable="true" ondragstart="ziehen(event)" id="drag8"&gt;&lt;/p&gt;&lt;/div&gt;
+        &lt;div id="dropzone9" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    </pre>
+  </code>
+  <code>
+    <pre>
+      function ziehen(ev) {
+        ev.dataTransfer.setData('text', ev.target.id);
+      }
+
+      function ablegenErlauben(ev) {
+        ev.preventDefault();
+      }
+
+      function ablegen(ev) {
+        if (ev.target.hasChildNodes()) {
+          console.log("Hat Kind.")
+          return;
+        } else {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData('text');
+          ev.target.appendChild(document.getElementById(data));
+          console.log("Hat kein Kind.")
+        }
+      }
+    </pre>
+  </code>
+  <h3>Ausgabe 2</h3>
+  <div id=dad-div>
+    <div id="dropzone1">
+      <p draggable="true" ondragstart="ziehen(event)" id="drag1"></p></div>
+    <div id="dropzone2">
+      <p draggable="true" ondragstart="ziehen(event)" id="drag2"></p></div>
+    <div id="dropzone3">
+      <p draggable="true" ondragstart="ziehen(event)" id="drag3"></p></div>
+    <div id="dropzone4">
+      <p draggable="true" ondragstart="ziehen(event)" id="drag4"></p></div>
+    <div id="dropzone5">
+      <p draggable="true" ondragstart="ziehen(event)" id="drag5"></p></div>
+    <div id="dropzone6">
+      <p draggable="true" ondragstart="ziehen(event)" id="drag6"></p></div>
+    <div id="dropzone7">
+      <p draggable="true" ondragstart="ziehen(event)" id="drag7"></p></div>
+    <div id="dropzone8">
+      <p draggable="true" ondragstart="ziehen(event)" id="drag8"></p></div>
+    <div id="dropzone9" ondrop="ablegen(event)" ondragover="ablegenErlauben(event)"></div>
+  </div>
+  <script>
+  <!--
+    function ziehen(ev) {
+      // Name des ausloesenden Objekts
+      name = event.target.id;
+      // Parent des ausloesenden Objektes finden mit ID
+      vater = document.getElementById(name).parentNode.id;
+      ev.dataTransfer.setData('text', ev.target.id);
+      // Attribute hinzufuegen(Muss wieder Droppable gesetzt werden)
+      document.getElementById(vater).setAttribute("ondrop", "ablegen(event)");
+      document.getElementById(vater).setAttribute("ondragover", "ablegenErlauben(event)");
+      console.log(name + vater);
+    }
+
+    function ablegenErlauben(ev) {
+      ev.preventDefault();
+    }
+
+    function ablegen(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData('text');
+      ev.target.appendChild(document.getElementById(data));
+      // Entfernen der Attribute nach Ablegen(Sperren des Divs)
+      ev.target.removeAttribute("ondrop");
+      ev.target.removeAttribute("ondragover");
+      console.log(name + vater);
+    }
+  //-->
+  </script>
+</article>
+
+<article id="javascript-ajax">
+  <h2>AJAX (Asynchronous JavaScript and XML)</h2>
+  <h3>Definition</h3>
+  <p>AJAX allows web pages to be updated asynchronously by exchanging small amounts of data with the server behind the scenes. This means that it is possible to update parts of a web page, without reloading the whole page.</p>
+  <p><mark>AJAX is a misleading name. You don't have to understand XML to use AJAX.</mark></p>
+  <h3>AJAX - Create an XMLHttpRequest Object</h3>
+  <code>
+    <pre>
+      // Syntax for creating an XMLHttpRequest object
+      xhttp = new XMLHttpRequest();
+    </pre>
+  </code>
+  <h3>AJAX - Send a Request To a Server</h3>
+  <code>
+    <pre>
+      /* GET or POST?
+      GET is simpler and faster than POST, and can be used in most cases.
+      However, always use POST requests when:
+      A cached file is not an option (update a file or database on the server).
+      Sending a large amount of data to the server (POST has no size limitations).
+      Sending user input (which can contain unknown characters), POST is more robust and secure than GET. */
+
+      // A simple GET request
+      xhttp.open("GET", "demo_get.asp", true);
+      xhttp.send();
+
+      /* In the example above, you may get a cached result.
+       To avoid this, add a unique ID to the URL: */
+      xhttp.open("GET", "demo_get.asp?t=" + Math.random(), true);
+      xhttp.send();
+
+      /* If you want to send information with the GET method, add the information to the URL: */
+      xhttp.open("GET", "demo_get2.asp?fname=Henry&amp;lname=Ford", true);
+      xhttp.send();
+
+      // A simple POST request:
+      xhttp.open("POST", "demo_post.asp", true);
+      xhttp.send();
+
+      /* To POST data like an HTML form, add an HTTP header with setRequestHeader(). Specify the data you want to send in the send() method:*/
+      xhttp.open("POST", "ajax_test.asp", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send("fname=Henry&amp;lname=Ford");
+    </pre>
+  </code>
+  <h3>Ausgabe</h3>
+  <p id="javascript-ajax-output"></p>
+  <script>
+  <!--
+    function loadContent() {
+      output = document.getElementById("javascript-ajax-output");
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange=function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+          output.innerHTML = xhttp.responseText;
+        } else {
+          output.innerHTML = "Keine Verbindung."
+        }
+      };
+      xhttp.open("GET", "javascript-ajax-output.txt", true);
+      xhttp.send();
+    }
+    loadContent();
+  //-->
+  </script>
+</article>
+
+<article id="javascript-DOM">
+  <h2>DOM Manipulation: </h2>
+  <h3>Elemente erstellen + Attribute setzen</h3>
+  <code>
+    <pre>
+      // new h3
+      var newH3 = document.createElement("h3");
+      var newContentH3 = document.createTextNode("Beispiel");
+      newH3.appendChild(newContentH3); // append TextNode to element
+
+      // new p
+      var newP = document.createElement("p");
+      newP.setAttribute("id", "js-DOM-1-output"); // set id
+      var newContentP = document.createTextNode("Gehen Sie bitte weiter, hier gibt's nichts zu sehen!");
+      newP.appendChild(newContentP);
+
+      // insert new element + content into DOM
+      var parentElement = this.parentNode;
+      parentElement.insertBefore(newH3, this);
+      parentElement.insertBefore(newP, this);
+
+      // Button Status
+      this.setAttribute("disabled", true);
+      this.innerHTML = "Bitte nicht noch einmal klicken. Danke."
+    </pre>
+  </code>
+  <button id="js-DOM-1-button">Hm?</button>
+  <script>
+    document.getElementById("js-DOM-1-button").onclick = function addElement() {
+
+      // new h3
+      var newH3 = document.createElement("h3");
+      var newContentH3 = document.createTextNode("Beispiel");
+      newH3.appendChild(newContentH3); // append TextNode to element
+
+      // new p
+      var newP = document.createElement("p");
+      newP.setAttribute("id", "js-DOM-1-output"); // set id
+      var newContentP = document.createTextNode("Gehen Sie bitte weiter, hier gibt's nichts zu sehen!");
+      newP.appendChild(newContentP);
+
+      // insert new element + content into DOM
+      var parentElement = this.parentNode;
+      parentElement.insertBefore(newH3, this);
+      parentElement.insertBefore(newP, this);
+
+      // Button Status
+      this.setAttribute("disabled", true);
+      this.innerHTML = "Bitte nicht noch einmal klicken. Danke."
+    }
+  </script>
+  <h3>Styling von HTML Elementen</h3>
+  <code id="js-DOM-2-code">
+    <pre>
+      elt.style.cssText = "color: blue"; // Multiple style properties
+
+      elt.setAttribute("style", "color: blue"); // Multiple style properties
+
+      elt.style.color = "blue";  // Directly
+
+      var st = elt.style;
+      st.color = "blue";  // Indirectly
+    </pre>
+  </code>
+  <button id="js-DOM-2-button">Farbe, bitte!</button>
+  <script>
+    document.getElementById("js-DOM-2-button").onclick = function ran_col() {
+      var color = '#'; // hexadecimal starting symbol
+      var letters = ['E6EBE0','5CA4A9','9BC1BC','F4F1BB','FFA987','36453B','82D173','87A878']; //Set your colors here
+      color += letters[Math.floor(Math.random() * letters.length)];
+      document.getElementById("js-DOM-2-code").style.backgroundColor = color; // Setting the random color on element.
+    }
+  </script>
+</article>

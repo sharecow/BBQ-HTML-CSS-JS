@@ -1,0 +1,44 @@
+<h1>HTML5</h1>
+
+<article class="html-vid">
+  <h2>Video</h2>
+  <video controls loop poster="http://www.w3schools.com/html/pic_mountain.jpg">
+    <source src="http://www.w3schools.com/html/movie.mp4" type="video/mp4">
+    <source src="http://www.w3schools.com/html/movie.ogg" type="video/ogg">
+    <object type="application/x-shockwave-flash" data="http://www.w3schools.com/html/helloworld.swf" width="260">
+      <param name="allowfullscreen" value="true">
+      <!--[if IE]><param name="movie" value="player.swf"><![endif]-->
+      <p>Your browser cannot play HTML5 video. <a href="http://www.w3schools.com/html/mov_bbb.webm">Download it</a> instead.</p>
+    </object>
+  </video>
+  <p class="footnote">Video courtesy of <a href="http://www.w3schools.com" target="_blank">w3schools.com</a>.</p>
+</article>
+
+<article class="html-aud">
+  <h2>Audio</h2>
+  <audio controls>
+    <source src="http://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+    <source src="http://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <p class="footnote">Audio courtesy of <a href="http://www.w3schools.com" target="_blank">w3schools.com</a>.</p>
+  <p class="footnote">Note: The autoplay attribute does not work in mobile devices like iPad and iPhone.</p>
+</article>
+
+<article class="html-text">
+  <h2>HTML Text Features</h2>
+  <p class="justify">Die <strong>Hypertext Markup Language</strong> (engl. für Hypertext-Auszeichnungssprache), abgekürzt
+    <acronym title="Hypertext Markup Language">HTML</acronym>,
+    ist eine <mark>textbasierte Auszeichnungssprache</mark> zur Strukturierung digitaler Dokumente wie Texte mit Hyperlinks,
+    Bildern und anderen Inhalten. HTML-Dokumente sind die Grundlage des World Wide Web und werden
+    von Webbrowsern dargestellt. Neben den vom Browser angezeigten Inhalten können HTML-Dateien zusätzliche
+    Angaben in Form von Metainformationen enthalten, z. B. über die im Text verwendeten Sprachen,
+    den Autor oder den zusammengefassten Inhalt des Textes.
+  </p>
+  <time>Datum und Uhrzeit:
+    <script>
+      var DatumAktuell = new Date();
+      document.write(DatumAktuell);
+    </script>
+  </time>
+</article>

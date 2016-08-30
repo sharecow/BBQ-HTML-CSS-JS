@@ -1,0 +1,145 @@
+<h1>CSS3</h1>
+
+<article class="css-int">
+  <h2>CSS: inline, inside, external</h2>
+  <p class="color-format" style="color: #39B54A;">Das ist eine Formatierung.</p>
+  <p><span class="green">inline</span> | <span class="red">internal</span> | <span class="blue">external</span></p>
+</article>
+
+ <article class="css-pseudo-element">
+  <h2>CSS3 Pseudo-Element ::before, ::after</h2>
+  <p><- Hier ist ein "<span class="green">before</span>" und hier ein "<span class="red">after</span>" -></p>
+  <code>
+    <pre>
+      p::before, p::after {
+        content: " *** ";
+        font-weight: bold;
+      }
+      p::before {
+        color: #39B54A;
+      }
+      p::after {
+        color: red;
+      }
+    </pre>
+  </code>
+</article>
+
+<article class="css-first-of-type">
+  <h2>CSS3 :first-of-type Selector</h2>
+  <p>The first paragraph.</p>
+  <p>The second paragraph.</p>
+  <p>The third paragraph.</p>
+  <p>The fourth paragraph.</p>
+  <code>
+    <pre>
+      p:first-of-type {
+        color: #39B54A;
+        font-weight: bold; }
+        p:first-of-type::before {
+          content: ">> "; }
+    </pre>
+  </code>
+</article>
+
+<article class="css-nth-of-type">
+  <h2>CSS3 :nth-of-type Selector</h2>
+  <p>The first paragraph.</p>
+  <p>The second paragraph.</p>
+  <p>The third paragraph.</p>
+  <p>The fourth paragraph.</p>
+  <code>
+    <pre>
+      p:nth-of-type(2) {
+        color: #3F77BB;
+        font-weight: bold; }
+        p:first-of-type::before {
+          content: ">> "; }
+    </pre>
+  </code>
+</article>
+
+<article class="css-first-child">
+  <h2>CSS :first-child Selector</h2>
+    <ul>
+      <li>The first child.</li>
+      <li>The second child.</li>
+      <li>The third child.</li>
+      <li>
+        <ul>
+          <li>The first child.</li>
+          <li>The second child.</li>
+          <li>The third child.</li>
+          <li>
+            <ul>
+              <li>The first child.</li>
+              <li>The second child.</li>
+              <li>The third child.</li>
+              <li>The fourth child.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>The fourth child.</li>
+    </ul>
+  <code>
+    <pre>
+      li:first-child {
+        color: #39B54A;
+        font-weight: bold; }
+        p:first-of-type::before {
+          content: ">> "; }
+    </pre>
+  </code>
+</article>
+
+<article class="css-nth-child">
+  <h2>CSS3 :nth-child() Selector</h2>
+  <ul>
+    <li>The first child.</li>
+    <li>The second child.</li>
+    <li>The third child.</li>
+  </ul>
+  <code>
+    <pre>
+      li:nth-child(2) {
+        color: #3F77BB;
+        font-weight: bold; }
+        p:first-of-type::before {
+          content: ">> "; }
+    </pre>
+  </code>
+</article>
+
+<article class="css-sel-attr">
+  <h2>CSS3 Attribute Selectores</h2>
+  <p><i>[id]</i> All elements with an id attribute</p>
+  <p><i>[id=my-Address]</i> All elements with an id attribute value equal to "my-Address"</p>
+  <p><i>[id$=ess]</i> All elements with an id attribute value ending with "ess"</p>
+  <p><i>[id|=my]</i> All elements with an id attribute value equal to "my" or starting with "my" followed by a hyphen (-)</p>
+  <p><i>[id^=L]</i> All elements with an id attribute value starting with the letter "L</p>
+  <p><i>[title~=beautiful]</i> All elements with a title attribute value containing the word "beautiful"</p>
+  <p><i>[id*=s]</i> All elements with an id attribute value containing the string "s"</p>
+</article>
+
+<article class="css-transition">
+  <h2>CSS3 Transitions <span class="red">>></span> HOVER MICH! <span class="red"><<</span></h2>
+  <p>Danke! :-)</p>
+  <code>
+    <pre>
+      #CSS3 > article.css-transition {
+        color: transparent;
+        cursor: pointer;
+        -webkit-transition: background 0.5s, color 0.5s, -webkit-transform 0.5s ease;
+        transition: background 0.5s, color 0.5s, transform 0.5s ease;
+      }
+
+      #CSS3 > article.css-transition:hover {
+        background: $red;
+        color: $bright-color;
+        -webkit-transform: rotate(4deg);
+        transform: rotate(4deg);
+      }
+    </pre>
+  </code>
+</article>
